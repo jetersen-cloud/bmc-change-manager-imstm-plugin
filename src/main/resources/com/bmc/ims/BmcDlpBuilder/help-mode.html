@@ -1,0 +1,29 @@
+<div>
+Option 'Optimize execution', instructs DELTA PLUS to attempt execution of the ENTIRE DELTA List as a single unit-of-work in IMS. 
+This is the recommended mode due to the speed in which the request is executed.      
+
+<p>                                                                         
+<b>Note:</b> You must select this option for a DELTA List that is defined as    
+Dependent to execute in the fashion Dependent implies.</p>                  
+ </p>       
+ <p>                                                                 
+Option 'One element at a time', instructs BMC AMI Change Manager for IMS TM to execute the DELTA
+List sequentially, one element at a time. This mode is much slower than  
+Optimize execution mode. However, there are certain occasions when one   
+element at a time is desirable.                                          
+For example, transactions T1, T2 and T3 all require the MAXRGN parameter 
+be changed from 3 to 4. Since they must be stopped before they can be    
+revised, you want them stopped for the shortest amount of time possible. 
+With Optimized mode, ALL the /STOP commands are done BEFORE the DELTA    
+revise is done, and ALL the /START commands are done AFTER the revise is 
+done. Using 'One element at a time' mode, the /STOP is done for T1, T1 is
+revised, then the /START command for T1 is issued before any activity  
+takes place for T2 or T3.                                              
+ <p>
+ <p>                                                                      
+This mode contains suboption Pause after elements with errors which    
+instructs BMC AMI Change Manager for IMS TM to stop the DELTA List execution when an error is 
+encountered. For additional information on the Pause option, place the 
+cursor on the phrase highlighted above, and press HELP (F1).
+</p>           
+</div>

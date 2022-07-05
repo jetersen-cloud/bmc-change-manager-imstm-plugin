@@ -1,0 +1,22 @@
+<div>
+<p>Frequently, users request a group of changes that need to be made to the   
+IMS system for a given application change or for a new release of the      
+application. It is important that all of the changes be applied; if ALL of 
+them cannot be made successfully, then NONE of the changes should be made. 
+DELTA PLUS supports this requirement with the concept of dependent         
+changes. Changes are grouped together in a single DELTA List that is       
+designated as a dependent DELTA List. This designation ensures that all    
+the changes in the DELTA List are successful or the changes will not be    
+performed.                                                                 
+</p>                                                                           
+<p><b>NOTE:</b> When the dependent option is selected for a DELTA List that contains 
+a COMMAND element, the success or failure of the COMMAND does not affect   
+execution of the DELTA List.                                               
+ </p>
+ <p>                                                                          
+For example, a dependent DELTA List contains multiple Revises and Adds for 
+transactions and programs. The DELTA List also contains a COMMAND element  
+that issues an invalid IMS command. At execution, the COMMAND element will 
+be flagged as being in error, but the rest of the DELTA List will execute.
+</p> 	       
+</div>

@@ -1,0 +1,1493 @@
+/**
+ * JSON object that maps actions operands
+ */
+
+
+
+var objs = [ 
+			{
+				"action" : "ADD",
+				"children":[
+					{
+						"elemenType" : "APPLCTN",
+						"operands":[
+							
+								
+							{
+								"id":"appres",
+								"label":"RES",
+								"comment":"BMCDLP188203E A value for RESIDENT is required for an ADD or ADD/REVISE action",
+								"optional":false,
+								"mut_exc":[{"label":"DYN","id":"dyn","value":"Y","matchValue":"Y"},{"label":"DYN","id":"dyn","value":"DOPT","matchValue":"Y"},{"label":"GPSB","id":"gpsb","value":"Y","matchValue":"Y"}]
+							},
+							
+							{
+								"id":"ty",
+								"label":"TY",
+								"comment":"BMCDLP188203E A value for PGMTYPE is required for an ADD or ADD/REVISE action",
+								"optional":false,
+								"mut_exc":[{"label":"FP","id":"appfp","value":"Y","matchValue":"BATCH"},{"label":"FP","id":"appfp","value":"Y","matchValue":"BMP"}]
+							},
+							{
+								"id":"schd",
+								"label":"SCHD",
+								"comment":" BMCDLP188203E A value for SCHDTYPE is required for an ADD or ADD/REVISE action",
+								"optional":false,
+								"mut_exc":[{"label":"DYN","id":"dyn","value":"Y","matchValue":"PARALLEL"},{"label":"DYN","id":"dyn","value":"DOPT","matchValue":"PARALLEL"}]
+							},
+							{
+								"id":"appfp",
+								"label":"FP",
+								"comment":"BMCDLP188203E A value for FPATH is required for an ADD or ADD/REVISE action",
+								"optional":false,
+								"mut_exc":[{"id":"lang","label":"LANG","value":"JAVA","matchValue":"Y"},{"id":"ty","label":"TY","value":"BMP","matchValue":"Y"},{"id":"ty","label":"TY","value":"BATCH","matchValue":"Y"}]
+							},
+							{
+								"id":"dyn",
+								"label":"DYN",
+								"optional":false,
+								"comment":" BMCDLP188203E A value for DOPT is required for an ADD or ADD/REVISE action ",
+								"mut_exc":[{"label":"GPSB","id":"gpsb","value":"Y","matchValue":"DOPT"},{"label":"GPSB","id":"gpsb","value":"Y","matchValue":"Y"},{"label":"SCHD","id":"schd","value":"PARALLEL","matchValue":"DOPT"},{"label":"SCHD","id":"schd","value":"PARALLEL","matchValue":"Y"},{"label":"RES","id":"appres","value":"Y","matchValue":"Y"},{"label":"RES","id":"appres","value":"Y","matchValue":"DOPT"}]
+							},
+							{
+								"id":"gpsb",
+								"label":"GPSB",
+								"optional":false,
+								"comment":"BMCDLP188203E A value for GPSB is required for an ADD or ADD/REVISE action",
+								"mut_exc":[{"label":"DYN","id":"dyn","value":"Y","matchValue":"Y"},{"label":"DYN","id":"dyn","value":"DOPT","matchValue":"Y"},{"label":"RES","id":"appres","value":"Y","matchValue":"Y"}],
+								"dependencies":[{"id":"lang","label":"LANG","matchValue":"Y"}]
+							},
+							{
+								"id":"lang",
+								"label":"LANG",
+								"optional":true,
+								"dependencies":[{"id":"gpsb","label":"GPSB","value":"Y"}],
+								"mut_exc":[{"id":"appfp","label":"FP","value":"Y","matchValue":"JAVA"}]
+								
+							},
+							{
+								"id":"apptls",
+								"label":"TLS",
+								"optional":true
+							},
+							{
+								"id":"appcopyacb",
+								"label":"COPYACB",
+								"optional":true
+							}
+							
+						] 
+						
+					},
+					{
+						"elemenType" : "DATABASE",
+						"operands":[						
+								
+							{
+								"id":"dbres",
+								"label":"RES",
+								"comment":"BMCDLP188203E A value for RESIDENT is required for an ADD or ADD/REVISE",
+								"optional":false
+							},
+							
+							{
+								"id":"acc",
+								"label":"ACC",
+								"comment":"BMCDLP188203E A value for ACCESS is required for an ADD or ADD/REVISE action",
+								"optional":false
+								
+							},
+							{
+								"id":"auto",
+								"label":"AUTO",
+								"comment":"BMCDLP188203E A value for AUTO is required for an ADD or ADD/REVISE action",
+								"optional":false
+							},
+							{
+								"id":"rand",
+								"label":"RAND",
+								"comment":"BMCDLP188203E A value for RAND is required for an ADD or ADD/REVISE action",
+								"optional":false
+							},
+							{
+								"id":"randonly",
+								"label":"RANDONLY",
+								"optional":true,
+								"distinct":true
+								
+							},
+							{
+								"id":"dbcopyacb",
+								"label":"COPYACB",
+								"optional":true
+							}
+							
+							
+							
+						] 
+						
+					},
+					{
+						"elemenType" : "RTCODE",
+						"operands":[							
+							{
+								"id":"rtcpsbname",
+								"label":"NAME",
+								"optional":false
+							},
+							{
+								"id":"rtcinq",
+								"label":"INQ",
+								"optional":true
+							}
+							
+							
+							]
+					},
+					{
+						"elemenType" : "TRANSACT",
+						"operands":[
+							{
+								"id":"psb",
+								"label":"PSB",
+								"optional":false,
+								"comment":"BMCDLP188203E A value for APPLCTN is required for an ADD or ADD/REVISE action"
+							},
+							
+							{
+								"id":"wfi",
+								"label":"WFI",
+								"optional":false,
+								"comment":"BMCDLP188203E A value for WFI is required for an ADD or ADD/REVISE action ",
+								"mut_exc":[	
+									{"label":"MPER","id":"mper","value":"MULT","matchValue":"Y"}
+									
+									]
+							},
+							{
+								"id":"npri",
+								"label":"NPRI",
+								"optional":false
+							},
+							{
+								"id":"lpri",
+								"label":"LPRI",
+								"optional":false
+							},
+							{
+								"id":"lco",
+								"label":"LCO",
+								"optional":false
+							},
+							{
+								"id":"mseg",
+								"label":"MSEG",
+								"optional":false,
+								"mut_exc":[	
+									{"label":"FP","id":"tranfp","value":"Y","matchValue":"Y"}
+								
+									]
+							},
+							{
+								"id":"resp",
+								"label":"RESP",
+								"optional":false,
+								"mut_exc":[	
+											{"label":"FP","id":"tranfp","value":"Y","matchValue":"Y"},
+											{"label":"FP","id":"tranfp","value":"Y","matchValue":"N"}
+											]
+							},
+							{
+								"id":"cl",
+								"label":"CL",
+								"optional":false
+							},
+							{
+								"id":"plc",
+								"label":"PLC",
+								"optional":false
+							},
+							{
+								"id":"time",
+								"label":"TIME",
+								"optional":false
+							},
+							{								
+								"id":"para",
+								"label":"PARA",
+								"optional":false
+							},
+							{								
+								"id":"uschd",
+								"label":"USCHD",
+								"optional":false
+							},
+							{								
+								"id":"traninq",
+								"label":"INQ",
+								"optional":false,
+								"mut_exc":[	
+									{"label":"RECV","id":"recv","value":"N","matchValue":"N"}								
+									]
+							},
+							{								
+								"id":"recv",
+								"label":"RECV",
+								"optional":false,
+								"mut_exc":[	
+									{"label":"FP","id":"tranfp","value":"Y","matchValue":"N"},
+									{"label":"INQ","id":"traninq","value":"N","matchValue":"N"}
+								
+									]
+							},
+							{								
+								"id":"tranfp",
+								"label":"FP",
+								"optional":false,
+								"mut_exc":[	
+									{"label":"MSEG","id":"mseg","value":"Y","matchValue":"Y"},
+									{"label":"RECV","id":"recv","value":"N","matchValue":"Y"},
+									{"label":"RESP","id":"resp","value":"N","matchValue":"Y"},
+									{"label":"SPAD","id":"spad","value":"STRUNC","matchValue":"Y"}	
+								
+									]
+							},
+							{								
+								"id":"emhs",
+								"label":"EMHS",
+								"optional":true
+							},
+							{								
+								"id":"mper",
+								"label":"MPER",
+								"optional":false,
+								"mut_exc":[	
+									{"label":"WFI","id":"wfi","value":"Y","matchValue":"MULT"}
+									
+									]
+							},
+							{								
+								"id":"uc",
+								"label":"UC",
+								"optional":false
+							},
+							{								
+								"id":"edit",
+								"label":"EDIT",
+								"optional":true
+							},
+							{								
+								"id":"lsid",
+								"label":"LSID",
+								"optional":true
+							},
+							{								
+								"id":"rsid",
+								"label":"RSID",
+								"optional":true
+							},
+							{								
+								"id":"spa",
+								"label":"SPA",
+								"optional":true
+							},
+							{								
+								"id":"spad",
+								"label":"SPAD",
+								"optional":true,
+								"mut_exc":[	{"label":"FP","id":"tranfp","value":"Y","matchValue":"STRUNC"}	]
+							},
+							{								
+								"id":"segs",
+								"label":"SEGS",
+								"optional":false
+								
+							},
+							{								
+								"id":"oseg",
+								"label":"OSEG",
+								"optional":false
+							},
+							{								
+								"id":"msc",
+								"label":"MSC",
+								"optional":false
+							},
+							{								
+								"id":"dc",
+								"label":"DC",
+								"optional":false
+							},
+							{								
+								"id":"mreg",
+								"label":"MREG",
+								"optional":true
+							},
+							{								
+								"id":"ser",
+								"label":"SER",
+								"optional":false
+							},
+							{								
+								"id":"aoi",
+								"label":"AOI",
+								"optional":true
+							},
+							{								
+								"id":"trantls",
+								"label":"TLS",
+								"optional":true
+							},
+							{								
+								"id":"exptm",
+								"label":"EXPTM",
+								"optional":true
+							}
+							]
+					},
+					{
+						"elemenType" : "TERMINAL",
+						"operands":[
+							{
+								"id":"terminalmask",
+								"label":"MASK",
+								"optional":false
+							},
+														{
+								"id":"sign",
+								"label":"SIGN",
+								"optional":false
+							}
+							]
+					},
+					{
+						"elemenType" : "LTERM",
+						"operands":[
+							{
+								"id":"ltermmask",
+								"label":"MASK",
+								"optional":false
+							},							
+							{
+								"id":"ass",
+								"label":"ASS",
+								"optional":true
+							},
+							{
+								"id":"msn",
+								"label":"MSN",
+								"optional":true
+							},
+							{
+								"id":"l61",
+								"label":"L61",
+								"optional":true
+							}
+							]
+					},
+					{
+						"elemenType" : "SUBPOOL",
+						"operands":[
+							{
+								"id":"subpoolmask",
+								"label":"MASK",
+								"optional":false
+							},
+							
+							{
+								"id":"msg",
+								"label":"MSG",
+								"optional":false
+							}
+							]
+					}
+					
+				]
+			},
+			{
+				"action" : "ADDREV",
+				"children":[
+					{
+						"elemenType" : "APPLCTN",
+						"operands":[
+							
+								
+							{
+								"id":"appres",
+								"label":"RES",
+								"optional":false,
+								"mut_exc":[{"label":"DYN","id":"dyn","value":"Y","matchValue":"Y"},{"label":"DYN","id":"dyn","value":"DOPT","matchValue":"Y"},{"label":"GPSB","id":"gpsb","value":"Y","matchValue":"Y"}]
+							},
+							
+							{
+								"id":"ty",
+								"label":"TY",
+								"optional":false,
+								"mut_exc":[{"label":"FP","id":"appfp","value":"Y","matchValue":"BATCH"},{"label":"FP","id":"appfp","value":"Y","matchValue":"BMP"}]
+							},
+							{
+								"id":"schd",
+								"label":"SCHD",
+								"optional":false,
+								"mut_exc":[{"label":"DYN","id":"dyn","value":"Y","matchValue":"PARALLEL"},{"label":"DYN","id":"dyn","value":"DOPT","matchValue":"PARALLEL"}]
+							},
+							{
+								"id":"appfp",
+								"label":"FP",
+								"optional":false,
+								"mut_exc":[{"id":"lang","label":"LANG","value":"JAVA","matchValue":"Y"},{"id":"ty","label":"TY","value":"BMP","matchValue":"Y"},{"id":"ty","label":"TY","value":"BATCH","matchValue":"Y"}]
+							},
+							{
+								"id":"dyn",
+								"label":"DYN",
+								"optional":false,
+								"comment":" BMCDLP188203E A value for DOPT is required for an ADD or ADD/REVISE action ",								
+								"mut_exc":[{"label":"GPSB","id":"gpsb","value":"Y","matchValue":"DOPT"},{"label":"GPSB","id":"gpsb","value":"Y","matchValue":"Y"},{"label":"SCHD","id":"schd","value":"PARALLEL","matchValue":"DOPT"},{"label":"SCHD","id":"schd","value":"PARALLEL","matchValue":"Y"},{"label":"RES","id":"appres","value":"Y","matchValue":"Y"},{"label":"RES","id":"appres","value":"Y","matchValue":"DOPT"}]
+							},
+							{
+								"id":"gpsb",
+								"label":"GPSB",
+								"optional":false,
+								"comment":"BMCDLP188203E A value for GPSB is required for an ADD or ADD/REVISE action",
+								"mut_exc":[{"label":"DYN","id":"dyn","value":"Y","matchValue":"Y"},{"label":"DYN","id":"dyn","value":"DOPT","matchValue":"Y"},{"label":"RES","id":"appres","value":"Y","matchValue":"Y"}],
+								"dependencies":[{"id":"lang","label":"LANG","matchValue":"Y"}]
+							},
+							{
+								"id":"lang",
+								"label":"LANG",
+								"optional":true,
+								"dependencies":[{"id":"gpsb","label":"GPSB","value":"Y"}],
+								"mut_exc":[{"id":"appfp","label":"FP","value":"Y","matchValue":"JAVA"}]
+							},
+							{
+								"id":"apptls",
+								"label":"TLS",
+								"optional":true
+							},
+							{
+								"id":"appcopyacb",
+								"label":"COPYACB",
+								"optional":true
+							}
+							
+						] 
+						
+					},
+					{
+						"elemenType" : "DATABASE",
+						"operands":[						
+								
+							{
+								"id":"dbres",
+								"label":"RES",
+								"optional":false
+								
+							},
+							
+							{
+								"id":"acc",
+								"label":"ACC",
+								"optional":false
+								
+								
+							},
+							{
+								"id":"auto",
+								"label":"AUTO",
+								"optional":false
+								
+							},
+							{
+								"id":"rand",
+								"label":"RAND",
+								"optional":false
+								
+							},
+							{
+								"id":"randonly",
+								"label":"RANDONLY",
+								"optional":true,
+								"distinct":true								
+								
+							},
+							{
+								"id":"dbcopyacb",
+								"label":"COPYACB",
+								"optional":true
+							}
+							
+							
+							
+						] 
+						
+					},
+					{
+						"elemenType" : "RTCODE",
+						"operands":[							
+							{
+								"id":"rtcpsbname",
+								"label":"NAME",
+								"optional":false
+							},
+							{
+								"id":"rtcinq",
+								"label":"INQ",
+								"optional":true
+							}
+							
+							
+							]
+					},
+					{
+						"elemenType" : "TRANSACT",
+						"operands":[
+							{
+								"id":"psb",
+								"label":"PSB",
+								"optional":false,
+								"comment":"BMCDLP188203E A value for APPLCTN is required for an ADD or ADD/REVISE action"
+							},
+							
+							{
+								"id":"wfi",
+								"label":"WFI",
+								"optional":false,
+								"comment":"BMCDLP188203E A value for WFI is required for an ADD or ADD/REVISE action ",
+								"mut_exc":[	
+									{"label":"MPER","id":"mper","value":"MULT","matchValue":"Y"}
+									
+									]
+							},
+							{
+								"id":"npri",
+								"label":"NPRI",
+								"optional":false
+							},
+							{
+								"id":"lpri",
+								"label":"LPRI",
+								"optional":false
+							},
+							{
+								"id":"lco",
+								"label":"LCO",
+								"optional":false
+							},
+							{
+								"id":"mseg",
+								"label":"MSEG",
+								"optional":false,
+								"mut_exc":[	
+									{"label":"FP","id":"tranfp","value":"Y","matchValue":"Y"}
+								
+									]
+							},
+							{
+								"id":"resp",
+								"label":"RESP",
+								"optional":false,
+								"mut_exc":[	
+									{"label":"FP","id":"tranfp","value":"Y","matchValue":"Y"},
+									{"label":"FP","id":"tranfp","value":"Y","matchValue":"N"}
+									]
+							},
+							{
+								"id":"cl",
+								"label":"CL",
+								"optional":false
+							},
+							{
+								"id":"plc",
+								"label":"PLC",
+								"optional":false
+							},
+							{
+								"id":"time",
+								"label":"TIME",
+								"optional":false
+							},
+							{								
+								"id":"para",
+								"label":"PARA",
+								"optional":false
+							},
+							{								
+								"id":"uschd",
+								"label":"USCHD",
+								"optional":false
+							},
+							{								
+								"id":"traninq",
+								"label":"INQ",
+								"optional":false,
+								"mut_exc":[	
+									{"label":"RECV","id":"recv","value":"N","matchValue":"N"}								
+									]
+							},
+							{								
+								"id":"recv",
+								"label":"RECV",
+								"optional":false,
+								"mut_exc":[	
+									{"label":"FP","id":"tranfp","value":"Y","matchValue":"N"},
+									{"label":"INQ","id":"traninq","value":"N","matchValue":"N"}
+								
+									]
+							},
+							{								
+								"id":"tranfp",
+								"label":"FP",
+								"optional":false,
+								"mut_exc":[	
+									{"label":"MSEG","id":"mseg","value":"Y","matchValue":"Y"},
+									{"label":"RECV","id":"recv","value":"N","matchValue":"Y"},
+									{"label":"RESP","id":"resp","value":"N","matchValue":"Y"},
+									{"label":"SPAD","id":"spad","value":"STRUNC","matchValue":"Y"}										
+									]
+							},
+							{								
+								"id":"emhs",
+								"label":"EMHS",
+								"optional":true
+							},
+							{								
+								"id":"mper",
+								"label":"MPER",
+								"optional":false,
+								"mut_exc":[	
+									{"label":"WFI","id":"wfi","value":"Y","matchValue":"MULT"}
+									
+									]
+							},
+							{								
+								"id":"uc",
+								"label":"UC",
+								"optional":false
+							},
+							{								
+								"id":"edit",
+								"label":"EDIT",
+								"optional":true
+							},
+							{								
+								"id":"lsid",
+								"label":"LSID",
+								"optional":true
+							},
+							{								
+								"id":"rsid",
+								"label":"RSID",
+								"optional":true
+							},
+							{								
+								"id":"spa",
+								"label":"SPA",
+								"optional":true
+							},
+							{								
+								"id":"spad",
+								"label":"SPAD",
+								"optional":true,
+								"mut_exc":[	{"label":"FP","id":"tranfp","value":"Y","matchValue":"STRUNC"}	]
+							},
+							{								
+								"id":"segs",
+								"label":"SEGS",
+								"optional":false
+							},
+							{								
+								"id":"oseg",
+								"label":"OSEG",
+								"optional":false
+							},
+							{								
+								"id":"msc",
+								"label":"MSC",
+								"optional":false
+							},
+							{								
+								"id":"dc",
+								"label":"DC",
+								"optional":false
+							},
+							{								
+								"id":"mreg",
+								"label":"MREG",
+								"optional":true
+							},
+							{								
+								"id":"ser",
+								"label":"SER",
+								"optional":false
+							},
+							{								
+								"id":"aoi",
+								"label":"AOI",
+								"optional":true
+							},
+							{								
+								"id":"trantls",
+								"label":"TLS",
+								"optional":true
+							},
+							{								
+								"id":"exptm",
+								"label":"EXPTM",
+								"optional":true
+							}
+							]
+					},
+					{
+						"elemenType" : "TERMINAL",
+						"operands":[
+							{
+								"id":"terminalmask",
+								"label":"MASK",
+								"optional":false
+							},
+														{
+								"id":"sign",
+								"label":"SIGN",
+								"optional":false
+							}
+							]
+					},
+					{
+						"elemenType" : "LTERM",
+						"operands":[
+							{
+								"id":"ltermmask",
+								"label":"MASK",
+								"optional":false
+							},							
+							{
+								"id":"ass",
+								"label":"ASS",
+								"optional":true
+							},
+							{
+								"id":"msn",
+								"label":"MSN",
+								"optional":true
+							},
+							{
+								"id":"l61",
+								"label":"L61",
+								"optional":true
+							}
+							]
+					},
+					{
+						"elemenType" : "SUBPOOL",
+						"operands":[
+							{
+								"id":"subpoolmask",
+								"label":"MASK",
+								"optional":false
+							},
+							
+							{
+								"id":"msg",
+								"label":"MSG",
+								"optional":false
+							}
+							]
+					}
+					
+				]
+			},
+			{
+				"action" : "REVISE",
+				"children":[
+					{
+						"elemenType" : "APPLCTN",
+						"operands":[
+							
+							{
+								"id":"appnewname",
+								"label":"NEW",
+								"optional":true
+							},	
+							{
+								"id":"appres",
+								"label":"RES",
+								"optional":true,
+								"mut_exc":[{"label":"DYN","id":"dyn","value":"Y","matchValue":"Y"},{"label":"DYN","id":"dyn","value":"DOPT","matchValue":"Y"},{"label":"GPSB","id":"gpsb","value":"Y","matchValue":"Y"}]
+							},
+							
+							{
+								"id":"ty",
+								"label":"TY",
+								"optional":true,
+								"mut_exc":[{"label":"FP","id":"appfp","value":"Y","matchValue":"BATCH"},{"label":"FP","id":"appfp","value":"Y","matchValue":"BMP"}]
+							},
+							{
+								"id":"schd",
+								"label":"SCHD",
+								"optional":true,
+								"mut_exc":[{"label":"DYN","id":"dyn","value":"Y","matchValue":"PARALLEL"},{"label":"DYN","id":"dyn","value":"DOPT","matchValue":"PARALLEL"}]
+							},
+							{
+								"id":"appfp",
+								"label":"FP",
+								"optional":true,
+								"mut_exc":[{"id":"lang","label":"LANG","value":"JAVA","matchValue":"Y"},{"id":"ty","label":"TY","value":"BMP","matchValue":"Y"},{"id":"ty","label":"TY","value":"BATCH","matchValue":"Y"}]
+							},
+							{
+								"id":"dyn",
+								"label":"DYN",
+								"optional":true,
+								"mut_exc":[{"label":"GPSB","id":"gpsb","value":"Y","matchValue":"DOPT"},{"label":"GPSB","id":"gpsb","value":"Y","matchValue":"Y"},{"label":"SCHD","id":"schd","value":"PARALLEL","matchValue":"DOPT"},{"label":"SCHD","id":"schd","value":"PARALLEL","matchValue":"Y"},{"label":"RES","id":"appres","value":"Y","matchValue":"Y"},{"label":"RES","id":"appres","value":"Y","matchValue":"DOPT"}]
+							},
+							{
+								"id":"gpsb",
+								"label":"GPSB",
+								"optional":true,								
+								"mut_exc":[{"label":"DYN","id":"dyn","value":"Y","matchValue":"Y"},{"label":"DYN","id":"dyn","value":"DOPT","matchValue":"Y"},{"label":"RES","id":"res","value":"Y","matchValue":"Y"}],
+								"dependencies":[{"id":"lang","label":"LANG","matchValue":"Y"}]
+							},
+							{
+								"id":"lang",
+								"label":"LANG",
+								"optional":true,
+								"dependencies":[{"id":"gpsb","label":"GPSB","value":"Y"}],
+								"mut_exc":[{"id":"appfp","label":"FP","value":"Y","matchValue":"JAVA"}]
+							},
+							{
+								"id":"apptls",
+								"label":"TLS",
+								"optional":true
+							},
+							{
+								"id":"appcopyacb",
+								"label":"COPYACB",
+								"optional":true
+							}
+							
+						] 
+						
+					},
+					{
+						"elemenType" : "DATABASE",
+						"operands":[
+							{
+								"id":"dbnewname",
+								"label":"NEW",
+								"optional":true
+								
+							},
+								
+							{
+								"id":"dbres",
+								"label":"RES",
+								"optional":true,
+								"mut_exc":[
+									{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"N"},
+									{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"N"},
+									{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"Y"},
+									{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"Y"}
+									]
+							},
+							
+							{
+								"id":"acc",
+								"label":"ACC",
+								"optional":true,
+								"mut_exc":[
+									{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"EX"},
+									{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"EX"},
+									{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"RO"},
+									{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"RO"},
+									{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"RD"},
+									{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"RD"},
+									{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"UP"},
+									{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"UP"}
+									]
+								
+							},
+							{
+								"id":"auto",
+								"label":"AUTO",
+								"optional":true,
+								"mut_exc":[
+									{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"N"},
+									{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"N"},
+									{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"Y"},
+									{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"Y"}
+									]
+							},
+							{
+								"id":"rand",
+								"label":"RAND",
+								"optional":true,
+								"mut_exc":[
+									{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"N"},
+									{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"N"},
+									{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"Y"},
+									{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"Y"}
+									]
+							},
+							{
+								"id":"randonly",
+								"label":"RANDONLY",
+								"optional":true,
+								"comment":"BMCDLP186836E No other fields can be selected if reloading DEDB 2-stage randomizer",   
+								"mut_exc":[
+									{"label":"AUTO","id":"auto","value":"Y","matchValue":"N"},
+									{"label":"AUTO","id":"auto","value":"N","matchValue":"N"},
+									{"label":"AUTO","id":"auto","value":"Y","matchValue":"Y"},
+									{"label":"AUTO","id":"auto","value":"N","matchValue":"Y"},
+									{"label":"RAND","id":"rand","value":"Y","matchValue":"N"},
+									{"label":"RAND","id":"rand","value":"N","matchValue":"N"},
+									{"label":"RAND","id":"rand","value":"Y","matchValue":"Y"},
+									{"label":"RAND","id":"rand","value":"N","matchValue":"Y"},
+									{"label":"ACC","id":"acc","value":"EX","matchValue":"N"},
+									{"label":"ACC","id":"acc","value":"RO","matchValue":"N"},
+									{"label":"ACC","id":"acc","value":"RD","matchValue":"N"},
+									{"label":"ACC","id":"acc","value":"UP","matchValue":"N"},
+									{"label":"ACC","id":"acc","value":"EX","matchValue":"Y"},
+									{"label":"ACC","id":"acc","value":"RO","matchValue":"Y"},
+									{"label":"ACC","id":"acc","value":"RD","matchValue":"Y"},
+									{"label":"ACC","id":"acc","value":"UP","matchValue":"Y"},
+									{"label":"RES","id":"dbres","value":"Y","matchValue":"N"},
+									{"label":"RES","id":"dbres","value":"N","matchValue":"N"},
+									{"label":"RES","id":"dbres","value":"Y","matchValue":"Y"},
+									{"label":"RES","id":"dbres","value":"N","matchValue":"Y"}
+									]
+								
+							},
+							{
+								"id":"dbcopyacb",
+								"label":"COPYACB",
+								"optional":true
+							}
+							
+						] 
+						
+					},
+					{
+						"elemenType" : "RTCODE",
+						"operands":[
+							{
+								"id":"rtcnewname",
+								"label":"NEW",
+								"optional":true
+							},
+							{
+								"id":"rtcpsbname",
+								"label":"NAME",
+								"optional":true
+							},
+							{
+								"id":"rtcinq",
+								"label":"INQ",
+								"optional":true
+							}
+							
+							
+							]
+					},
+					{
+						"elemenType" : "TRANSACT",
+						"operands":[
+							{
+								"id":"psb",
+								"label":"PSB",
+								"optional":true
+							},
+							{
+								"id":"trannewname",
+								"label":"NEW",
+								"optional":true
+							},
+							{
+								"id":"wfi",
+								"label":"WFI",
+								"optional":true,
+								"mut_exc":[	
+									{"label":"MPER","id":"mper","value":"MULT","matchValue":"Y"}
+									
+									]
+							},
+							{
+								"id":"npri",
+								"label":"NPRI",
+								"optional":true
+							},
+							{
+								"id":"lpri",
+								"label":"LPRI",
+								"optional":true
+							},
+							{
+								"id":"lco",
+								"label":"LCO",
+								"optional":true
+							},
+							{
+								"id":"mseg",
+								"label":"MSEG",
+								"optional":true,
+								"mut_exc":[	
+									{"label":"FP","id":"tranfp","value":"Y","matchValue":"Y"}
+								
+									]
+							},
+							{
+								"id":"resp",
+								"label":"RESP",
+								"optional":true,
+								"mut_exc":[	
+									{"label":"FP","id":"tranfp","value":"Y","matchValue":"Y"},
+									{"label":"FP","id":"tranfp","value":"Y","matchValue":"N"}
+									]
+							},
+							{
+								"id":"cl",
+								"label":"CL",
+								"optional":true
+							},
+							{
+								"id":"plc",
+								"label":"PLC",
+								"optional":true
+							},
+							{
+								"id":"time",
+								"label":"TIME",
+								"optional":true
+							},
+							{								
+								"id":"para",
+								"label":"PARA",
+								"optional":true
+							},
+							{								
+								"id":"uschd",
+								"label":"USCHD",
+								"optional":true
+							},
+							{								
+								"id":"traninq",
+								"label":"INQ",
+								"optional":true,
+								"mut_exc":[	
+									{"label":"RECV","id":"recv","value":"N","matchValue":"N"}								
+									]
+							},
+							{								
+								"id":"recv",
+								"label":"RECV",
+								"optional":true,
+								"mut_exc":[	
+									{"label":"FP","id":"tranfp","value":"Y","matchValue":"N"},
+									{"label":"INQ","id":"traninq","value":"N","matchValue":"N"}
+								
+									]
+							},
+							{								
+								"id":"tranfp",
+								"label":"FP",
+								"optional":true,
+								"mut_exc":[	
+									{"label":"MSEG","id":"mseg","value":"Y","matchValue":"Y"},
+									{"label":"RECV","id":"recv","value":"N","matchValue":"Y"},
+									{"label":"RESP","id":"resp","value":"N","matchValue":"Y"},									
+									{"label":"SPAD","id":"spad","value":"STRUNC","matchValue":"Y"}									
+										
+									]
+							},
+							{								
+								"id":"emhs",
+								"label":"EMHS",
+								"optional":true
+							},
+							{								
+								"id":"mper",
+								"label":"MPER",
+								"optional":true,
+								"mut_exc":[	
+									{"label":"WFI","id":"wfi","value":"Y","matchValue":"MULT"}
+									
+									]
+							},
+							{								
+								"id":"uc",
+								"label":"UC",
+								"optional":true
+							},
+							{								
+								"id":"edit",
+								"label":"EDIT",
+								"optional":true
+							},
+							{								
+								"id":"lsid",
+								"label":"LSID",
+								"optional":true
+							},
+							{								
+								"id":"rsid",
+								"label":"RSID",
+								"optional":true
+							},
+							{								
+								"id":"spa",
+								"label":"SPA",
+								"optional":true
+							},
+							{								
+								"id":"spad",
+								"label":"SPAD",
+								"optional":true,
+								"mut_exc":[	
+									{"label":"FP","id":"tranfp","value":"Y","matchValue":"STRUNC"}									
+									]
+							},
+							{								
+								"id":"segs",
+								"label":"SEGS",
+								"optional":true
+							},
+							{								
+								"id":"oseg",
+								"label":"OSEG",
+								"optional":true
+							},
+							{								
+								"id":"msc",
+								"label":"MSC",
+								"optional":true
+							},
+							{								
+								"id":"dc",
+								"label":"DC",
+								"optional":true
+							},
+							{								
+								"id":"mreg",
+								"label":"MREG",
+								"optional":true
+							},
+							{								
+								"id":"ser",
+								"label":"SER",
+								"optional":true
+							},
+							{								
+								"id":"aoi",
+								"label":"AOI",
+								"optional":true
+							},
+							{								
+								"id":"trantls",
+								"label":"TLS",
+								"optional":true
+							},
+							{								
+								"id":"exptm",
+								"label":"EXPTM",
+								"optional":true
+							}
+							]
+					},
+					{
+						"elemenType" : "TERMINAL",
+						"operands":[
+							
+							{
+								"id":"terminalnewname",
+								"label":"NEW",
+								"optional":true
+							},
+							{
+								"id":"sign",
+								"label":"SIGN",
+								"optional":true
+							}
+							]
+					},
+					{
+						"elemenType" : "LTERM",
+						"operands":[
+							{
+								"id":"ltermmask",
+								"label":"MASK",
+								"optional":true
+							},
+							{
+								"id":"ltermnewname",
+								"label":"NEW",
+								"optional":true
+							},
+							{
+								"id":"ass",
+								"label":"ASS",
+								"optional":true
+							},
+							{
+								"id":"msn",
+								"label":"MSN",
+								"optional":true
+							},
+							{
+								"id":"l61",
+								"label":"L61",
+								"optional":true
+							}
+							]
+					},
+					{
+						"elemenType" : "SUBPOOL",
+						"operands":[
+							{
+								"id":"subpoolmask",
+								"label":"MASK",
+								"optional":true
+							},
+							{
+								"id":"subpoolnewname",
+								"label":"NEW",
+								"optional":true
+							},
+							{
+								"id":"msg",
+								"label":"MSG",
+								"optional":true
+							}
+							]
+					}
+			
+					]
+			},
+			
+			{
+				"action" : "DELETE",
+				"children":[
+					{
+						"elemenType" : "APPLCTN",
+						"operands":[]
+					},
+					{
+						"elemenType" : "TRANSACT",
+						"operands":[]
+					},
+					{
+						"elemenType" : "DATABASE",
+						"operands":[]
+					},
+					{
+						"elemenType" : "RTCODE",
+						"operands":[]
+					},
+					{
+						"elemenType" : "TERMINAL",
+						"operands":[]
+					},
+					{
+						"elemenType" : "LTERM",
+						"operands":[]
+					},
+					{
+						"elemenType" : "SUBPOOL",
+						"operands":[]
+					}
+					]
+			},
+			{
+				"action" : "RELOAD",
+				"children":[
+					{
+						"elemenType" : "APPLCTN",
+						"operands":[
+							{
+								"id":"apprelgsam",
+								"label":"RELGSAM",
+								"optional":true
+							},
+							{
+								"id":"appcopyacb",
+								"label":"COPYACB",
+								"optional":true
+							}
+						]
+					},					
+					{
+						"elemenType" : "DATABASE",
+						"operands":[
+							
+							{
+								"id":"auto",
+								"label":"AUTO",
+								"optional":true,
+								"mut_exc":[
+									{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"N"},
+									{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"N"},
+									{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"Y"},
+									{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"Y"},
+									{"label":"RLDAREAS","id":"rldareas","value":"Y","matchValue":"N"},
+									{"label":"RLDAREAS","id":"rldareas","value":"N","matchValue":"N"},
+									{"label":"RLDAREAS","id":"rldareas","value":"Y","matchValue":"Y"},
+									{"label":"RLDAREAS","id":"rldareas","value":"N","matchValue":"Y"},
+									{"label":"IOVFEXT","id":"iovfext","value":"Y","matchValue":"N"},
+									{"label":"IOVFEXT","id":"iovfext","value":"N","matchValue":"N"},
+									{"label":"IOVFEXT","id":"iovfext","value":"Y","matchValue":"Y"},
+									{"label":"IOVFEXT","id":"iovfext","value":"N","matchValue":"Y"}
+									]
+							},
+							{
+								"id":"rand",
+								"label":"RAND",
+								"optional":true,
+								"mut_exc":[
+									{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"N"},
+									{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"N"},
+									{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"Y"},
+									{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"Y"},
+									{"label":"RLDAREAS","id":"rldareas","value":"Y","matchValue":"N"},
+									{"label":"RLDAREAS","id":"rldareas","value":"N","matchValue":"N"},
+									{"label":"RLDAREAS","id":"rldareas","value":"Y","matchValue":"Y"},
+									{"label":"RLDAREAS","id":"rldareas","value":"N","matchValue":"Y"},
+									{"label":"IOVFEXT","id":"iovfext","value":"Y","matchValue":"N"},
+									{"label":"IOVFEXT","id":"iovfext","value":"N","matchValue":"N"},
+									{"label":"IOVFEXT","id":"iovfext","value":"Y","matchValue":"Y"},
+									{"label":"IOVFEXT","id":"iovfext","value":"N","matchValue":"Y"},
+									{"label":"RELGSAM","id":"auto","value":"Y","matchValue":"N"},
+									{"label":"RELGSAM","id":"auto","value":"N","matchValue":"N"},
+									{"label":"RELGSAM","id":"auto","value":"Y","matchValue":"Y"},
+									{"label":"RELGSAM","id":"auto","value":"N","matchValue":"Y"}
+									]
+							},
+							{
+								"id":"randonly",
+								"label":"RANDONLY",
+								"comment":"For DATABASE resources, if RANDONLY is specified then no other field can be specified",
+								"optional":true,
+								"mut_exc":
+									[
+										{"label":"RLDAREAS","id":"rldareas","value":"Y","matchValue":"Y"},
+										{"label":"RLDAREAS","id":"rldareas","value":"N","matchValue":"Y"},
+										{"label":"RLDAREAS","id":"rldareas","value":"Y","matchValue":"N"},
+										{"label":"RLDAREAS","id":"rldareas","value":"N","matchValue":"N"},
+										{"label":"IOVFEXT","id":"iovfext","value":"Y","matchValue":"Y"},
+										{"label":"IOVFEXT","id":"iovfext","value":"N","matchValue":"Y"},
+										{"label":"IOVFEXT","id":"iovfext","value":"Y","matchValue":"N"},
+										{"label":"IOVFEXT","id":"iovfext","value":"N","matchValue":"N"},
+										{"label":"RAND","id":"rand","value":"Y","matchValue":"Y"},
+										{"label":"RAND","id":"rand","value":"N","matchValue":"Y"},
+										{"label":"RAND","id":"rand","value":"Y","matchValue":"N"},
+										{"label":"RAND","id":"rand","value":"N","matchValue":"N"},
+										{"label":"AUTO","id":"auto","value":"Y","matchValue":"Y"},
+										{"label":"AUTO","id":"auto","value":"N","matchValue":"Y"},
+										{"label":"AUTO","id":"auto","value":"Y","matchValue":"N"},
+										{"label":"AUTO","id":"auto","value":"N","matchValue":"N"},
+										{"label":"RELGSAM","id":"auto","value":"Y","matchValue":"N"},
+										{"label":"RELGSAM","id":"auto","value":"N","matchValue":"N"},
+										{"label":"RELGSAM","id":"auto","value":"Y","matchValue":"Y"},
+										{"label":"RELGSAM","id":"auto","value":"N","matchValue":"Y"}
+										
+										]
+								
+							},
+							{
+								"id":"rldareas",
+								"label":"RLDAREAS",
+								"comment":"For DATABASE resources, if RLDAREAS is specified then no other field can be specified",
+								"optional":true,
+								"mut_exc":
+									[
+										{"label":"IOVFEXT","id":"iovfext","value":"Y","matchValue":"Y"},
+										{"label":"IOVFEXT","id":"iovfext","value":"N","matchValue":"Y"},
+										{"label":"IOVFEXT","id":"iovfext","value":"Y","matchValue":"N"},
+										{"label":"IOVFEXT","id":"iovfext","value":"N","matchValue":"N"},
+										{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"Y"},
+										{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"Y"},
+										{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"N"},
+										{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"N"},
+										{"label":"RAND","id":"rand","value":"Y","matchValue":"Y"},
+										{"label":"RAND","id":"rand","value":"N","matchValue":"Y"},
+										{"label":"RAND","id":"rand","value":"Y","matchValue":"N"},
+										{"label":"RAND","id":"rand","value":"N","matchValue":"N"},
+										{"label":"AUTO","id":"auto","value":"Y","matchValue":"Y"},
+										{"label":"AUTO","id":"auto","value":"N","matchValue":"Y"},
+										{"label":"AUTO","id":"auto","value":"Y","matchValue":"N"},
+										{"label":"AUTO","id":"auto","value":"N","matchValue":"N"},
+										{"label":"RELGSAM","id":"auto","value":"Y","matchValue":"N"},
+										{"label":"RELGSAM","id":"auto","value":"N","matchValue":"N"},
+										{"label":"RELGSAM","id":"auto","value":"Y","matchValue":"Y"},
+										{"label":"RELGSAM","id":"auto","value":"N","matchValue":"Y"}
+										
+										]
+							},
+							{
+								"id":"iovfext",
+								"label":"IOVFEXT",
+								"optional":true,
+								"comment":"For DATABASE resources, if IOVFEXT is specified then no other field can be specified",
+								"mut_exc":
+									[
+										{"label":"RLDAREAS","id":"rldareas","value":"Y","matchValue":"Y"},
+										{"label":"RLDAREAS","id":"rldareas","value":"N","matchValue":"Y"},
+										{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"Y"},
+										{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"Y"},
+										{"label":"RAND","id":"rand","value":"Y","matchValue":"Y"},
+										{"label":"RAND","id":"rand","value":"N","matchValue":"Y"},
+										{"label":"AUTO","id":"auto","value":"Y","matchValue":"Y"},
+										{"label":"AUTO","id":"auto","value":"N","matchValue":"Y"},
+										{"label":"RLDAREAS","id":"rldareas","value":"Y","matchValue":"N"},
+										{"label":"RLDAREAS","id":"rldareas","value":"N","matchValue":"N"},
+										{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"N"},
+										{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"N"},
+										{"label":"RAND","id":"rand","value":"Y","matchValue":"N"},
+										{"label":"RAND","id":"rand","value":"N","matchValue":"N"},
+										{"label":"AUTO","id":"auto","value":"Y","matchValue":"N"},
+										{"label":"AUTO","id":"auto","value":"N","matchValue":"N"},
+										{"label":"RELGSAM","id":"auto","value":"Y","matchValue":"N"},
+										{"label":"RELGSAM","id":"auto","value":"N","matchValue":"N"},
+										{"label":"RELGSAM","id":"auto","value":"Y","matchValue":"Y"},
+										{"label":"RELGSAM","id":"auto","value":"N","matchValue":"Y"}
+										
+										]
+							},
+							{
+								"id":"dbrelgsam",
+								"label":"RELGSAM",
+								"comment":"BMCDLP188263E No other fields except AUTO and Copy objects can be selected if reload GSAM is selected ",
+								"optional":true,
+								"mut_exc":
+									[
+										{"label":"IOVFEXT","id":"iovfext","value":"Y","matchValue":"Y"},
+										{"label":"IOVFEXT","id":"iovfext","value":"N","matchValue":"Y"},
+										{"label":"IOVFEXT","id":"iovfext","value":"Y","matchValue":"N"},
+										{"label":"IOVFEXT","id":"iovfext","value":"N","matchValue":"N"},
+										{"label":"RLDAREAS","id":"rldareas","value":"Y","matchValue":"Y"},
+										{"label":"RLDAREAS","id":"rldareas","value":"N","matchValue":"Y"},
+										{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"Y"},
+										{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"Y"},
+										{"label":"RAND","id":"rand","value":"Y","matchValue":"Y"},
+										{"label":"RAND","id":"rand","value":"N","matchValue":"Y"},										
+										{"label":"RLDAREAS","id":"rldareas","value":"Y","matchValue":"N"},
+										{"label":"RLDAREAS","id":"rldareas","value":"N","matchValue":"N"},
+										{"label":"RANDONLY","id":"randonly","value":"Y","matchValue":"N"},
+										{"label":"RANDONLY","id":"randonly","value":"N","matchValue":"N"},
+										{"label":"RAND","id":"rand","value":"Y","matchValue":"N"},
+										{"label":"RAND","id":"rand","value":"N","matchValue":"N"}								
+										
+										]
+							},
+							{
+								"id":"dbcopyacb",
+								"label":"COPYACB",
+								"optional":true
+							}
+						]
+					}
+					
+					]
+			}
+	
+	
+			
+		];
+
+

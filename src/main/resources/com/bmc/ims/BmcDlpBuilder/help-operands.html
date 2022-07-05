@@ -1,0 +1,87 @@
+                   
+<table style="font-family: monospace;">   
+ 	<tr><td colspan="3"><h3>DATABASE resource_type operands:</h3></td> 
+	<tr><td>NEW=	 </td> 	<td>name 		</td> <td>New name (for RENAME)					</td></tr>        
+ 	<tr><td>RES=	 </td>  <td>Y/N  		</td> <td>Residence option           			</td></tr>
+    <tr><td>ACC=	 </td>  <td>UP/EX/RD/RO </td> <td>Access option              			</td></tr>
+    <tr><td>AUTO=	 </td>  <td>Y/N        	</td> <td>Reload sensitive ACBs      			</td></tr>
+    <tr><td>RAND=	 </td>  <td>Y/N     	</td> <td>Reload Fath_Path randomizer			</td></tr>
+    <tr><td>RANDONLY=</td>	<td>Y/N     	</td> <td>Reload Fath_Path 2-stg randomizer only</td></tr>
+    <tr><td>RLDAREAS=</td>	<td>Y/N      	</td> <td>Reload stopped DEDB areas only        </td></tr>
+    <tr><td>IOVFEXT= </td>	<td>Y/N       	</td> <td>DEDB IOVF extension requested    		</td></tr>         
+                                                     
+ 
+ <tr><td colspan="3"><h3>APPLCTN resource_type operands:</h3></td>  
+                    
+   <tr><td>NEW=     </td> 	<td>name          						</td>	<td>New name (for RENAME) 	   </td></tr>     
+   <tr><td>RES=     </td> 	<td>Y/N           						</td>	<td>Residence option           </td></tr>
+   <tr><td>TY=      </td> 	<td>TP/BATCH/MPP/BMP    				</td>	<td>Region type                </td></tr>  
+   <tr><td>SCHD=    </td> 	<td>SERIAL/PARALLEL     				</td>	<td>Schedule type              </td></tr>   
+   <tr><td>FP=      </td> 	<td>Y/N           						</td>	<td>Fast_Path indicator        </td></tr>
+   <tr><td>DYN=     </td> 	<td>Y/N           						</td>	<td>Dynamic PSB, DOPT, option  </td></tr>
+   <tr><td>GPSB=    </td> 	<td>Y/N           						</td>	<td>Dynamically generate PSB   </td></tr>
+   <tr><td>LANG=    </td> 	<td>COBOL/ASSEM/PASCAL/PL/I/JAVA/NONE   </td>	<td>GPSB Language              </td></tr>   
+   <tr><td>TLS=     </td> 	<td>Y/N           						</td>	<td>Trans Level Stats     	   </td></tr>
+ </table>
+                                                     
+<h3> RTCODE resource_type operands:</h3>                      
+   NAME=    name          Name of PSB   <br/>             
+   NEW=     name          New name (for RENAME) <br/>     
+   INQ=     Y/N           Inquiry_Only               <br/>
+                                                     
+ <h3>TRANSACTION resource_type operands:</h3> 
+ <p>                
+   PSB=     name          Name of PSB <br/>
+   NEW=     name          New name (for RENAME)<br/>        
+   WFI=     Y/N           Wait_for_input transaction <br/>  
+   NPRI=    number        Normal_Priorty               <br/>
+   LPRI=    number        Limit_Priority               <br/>
+   LCO=     number        Limit_Count                  <br/>
+   MSEG=    Y/N           Multiple_Segment input       <br/>
+   RESP=    Y/N           Transaction response mode    <br/>
+   CL=      number        Class                        <br/>
+   PLC=     number        Processing_Limit_Count       <br/>
+   TIME=    number        Processing_Time in seconds   <br/>
+   PARA=    number/'NONE' Parallel processing limit    <br/>
+   USCHD=   number        option if unschedulable      <br/>
+   INQ=     Y/N           Inquiry_Only                 <br/>
+   RECV=    Y/N           Recoverable                  <br/>
+   FP=      Y/N           Fast_Path                    <br/>
+   EMHS=    number        EMH buffer size              <br/>
+   MPER=    SNGL/MULT     Message per sync point       <br/>
+   UC=      Y/N           translate input to upper case<br/>
+   EDIT=    name          Edit routine name            <br/>
+   LSID=    number        Local SYSID                  <br/>
+   RSID=    number        Remote SYSID                 <br/>
+   SPA=     number        SPA size                     <br/>
+   SPAD=    STRUNC/RTRUNC SPA truncated data option    <br/>
+   SEGS=    number        maximum segment size         <br/>
+   OSEG=    number        maximum number of segments   <br/>
+   MSC=     Y/N           pass origin to application   <br/>
+   DC=      Y/N           DC log write ahead           <br/>
+   MREG=    number        maximum regions              <br/>
+   SER=     Y/N           Serial option                <br/>
+   AOI=     N/Y/T/C       AOI Security                 <br/>
+   TLS=     Y/N           Trans Level Stats     #151609<br/>
+   EXPTM=   number        Expiry time in secs   #156640<br/>
+                                                      </p>
+<h3>TERMINAL resource_type operands:</h3>                      
+  MASK=    name          Spare Element mask <br/>           
+  NEW=     name          New name (for RENAME)   <br/>     
+  SIGN=    Y/N           Signon_Required              <br/>
+                                                      
+<h3>LTERM resource_type operands:</h3>                         
+  <p>
+  MASK=    name          Spare Element mask<br/>           
+  NEW=     name          New name (for RENAME)  <br/>      
+  ASS=     name          Assign_to node name         <br/> 
+  MSN=     name          MSNAME                       <br/>
+  L61=     Y/N           LTERM is LU6.1 Subpool       
+</p>                                                      
+                                                      
+<h3>SUBPOOL resource_type operands:</h3>                       
+ <p> MASK=    name          Spare Element mask <br/>           
+  NEW=     name          New name (for RENAME) <br/>       
+  MSG=     SYSINFO/      MSGDEL option         <br/>       
+           NONIOPCB                                                  
+       </p>    
