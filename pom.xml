@@ -8,19 +8,34 @@
         <relativePath />
     </parent>
     <groupId>com.bmc.ibm</groupId>
-    <artifactId>DevOps4DLP</artifactId>
-    <version>3.0.03</version>
+    <artifactId>bmc-change-manager-imstm</artifactId>
+	<version>${changelist}</version>
     <packaging>hpi</packaging>
     <properties>
         <!-- revision>1.0</revision-->
         <!-- changelist>-SNAPSHOT</changelist-->
         <!--jenkins.version>2.277.1</jenkins.version-->
+		<changelist>999999-SNAPSHOT</changelist>
 		<jenkins.version>2.349</jenkins.version>
-        <java.level>8</java.level>
+        <java.level>11</java.level>
+		<gitHubRepo>jenkinsci/${project.artifactId}-plugin</gitHubRepo>
             </properties>
     <name>BMC DevOps for AMI Change Manager for IMS TM Plugin</name>
     <description>BMC DevOps for AMI Change Manager for IMS TM provides the capability of manipulating IMS resources online.</description>
-    
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://opensource.org/licenses/MIT</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<connection>scm:git:git://github.com/${gitHubRepo}.git</connection>
+		<developerConnection>scm:git:git@github.com:${gitHubRepo}.git</developerConnection>
+		<tag>bmc-change-manager-imstm-1.0.01</tag>
+		<url>https://github.com/${gitHubRepo}</url>
+	</scm>
 
     <dependencyManagement>
         <dependencies>
@@ -33,10 +48,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-
-
-    
 
     <repositories>
         <repository>
