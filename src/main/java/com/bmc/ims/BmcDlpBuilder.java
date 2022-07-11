@@ -1110,7 +1110,149 @@ public class BmcDlpBuilder extends Builder implements SimpleBuildStep, Serializa
 			return result;
 		}
 
+		@POST
+		public FormValidation doCheckPsb(@QueryParameter String value)
+		{
+			FormValidation result = null;
 
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			String tempValue = StringUtils.trimToEmpty(value);
+			if (tempValue.isEmpty())
+				result = FormValidation.error("PSB name is required!");
+
+			return result;
+		}
+
+		@POST
+		public FormValidation doCheckAppres(@QueryParameter String value, @QueryParameter String dyn, @QueryParameter String gpsb) {
+
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			if(value.equals("Y")) {
+				if (dyn.equals("Y") || dyn.equals("DOPT"))
+					result = FormValidation.warning("RES=Y and DYN=" + dyn + " are mutually exclusive");
+				else if (gpsb.equals("Y"))
+					result = FormValidation.warning("RES=Y and GPSB=" + gpsb + " are mutually exclusive");
+			}
+			return result;
+		}
+
+		@POST
+		public FormValidation doCheckTy(@QueryParameter String value, @QueryParameter String appfp) {
+
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			if(( value.equals("BATCH") || value.equals("BMP")  )&& appfp.equals("Y"))
+				result = FormValidation.warning("TY="+value +" and FP=" + appfp + " are mutually exclusive");
+
+			return result;
+		}
+
+		@POST
+		public FormValidation doCheckSchd(@QueryParameter String value, @QueryParameter String dyn) {
+
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			if( value.equals("PARALLEL") || ( dyn.equals("Y")  && dyn.equals("DOPT")))
+				result = FormValidation.warning("SCHD="+value +" and DYN=" + dyn + " are mutually exclusive");
+
+			return result;
+		}
+
+
+
+		@POST
+		public FormValidation doCheckAppfp(@QueryParameter String value, @QueryParameter String lang ,@QueryParameter String ty) {
+
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			if(value.equals("Y"))
+			{
+				if(lang.equals("JAVA"))
+					result=FormValidation.warning("FP="+ value+" and LANG="+lang+" are mutually exclusive");
+				else if(ty.equals("BMP") || ty.equals("BATCH"))
+					result=FormValidation.warning("DYN="+ value+" and RES=Y are mutually exclusive");
+			}
+
+			return result;
+		}
+
+		@POST
+		public FormValidation doCheckDyn(@QueryParameter String value, @QueryParameter String gpsb ,@QueryParameter String schd, @QueryParameter String appres) {
+
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			if(value.equals("Y") || value.equals("DOPT") )
+			{
+				if(gpsb.equals("Y"))
+					result=FormValidation.warning("DYN="+ value+" and GPSB="+gpsb+" are mutually exclusive");
+				else if(schd.equals("PARALLEL") )
+					result=FormValidation.warning("DYN="+ value+" and SCHD="+schd+" are mutually exclusive");
+				else if(appres.equals("Y") )
+					result=FormValidation.warning("DYN="+ value+" and RES="+appres+" are mutually exclusive");
+
+			}
+
+			return result;
+		}
+		@POST
+		public FormValidation doCheckGpsb(@QueryParameter String value, @QueryParameter boolean bmcLang, @QueryParameter String dyn, @QueryParameter String appres ) {
+
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			if(value.equals("Y") ) {
+				if(bmcLang==false )
+					result = FormValidation.error("If GPSB=YES, LANG must be specified");
+				if(dyn.equals("DOPT") || dyn.equals("Y"))
+					result = FormValidation.warning("GPSB=" + value + " and DYN="+dyn+" are mutually exclusive");
+				if(appres.equals("Y"))
+					result = FormValidation.warning("GPSB=" + value + " and RES="+appres+" are mutually exclusive");
+			}
+			return result;
+		}
+
+		@POST
+		public FormValidation doCheckLang(@QueryParameter String value, @QueryParameter boolean bmcLang, @QueryParameter String appfp, @QueryParameter String gpsb ) {
+
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			if(bmcLang==true ) {
+				if(gpsb.equals("N") )
+					result = FormValidation.error("LANG is only valid if GPSB=YES");
+				if(value.equals("JAVA") && appfp.equals("Y"))
+					result = FormValidation.warning("LANG=" + value + " and FP="+appfp+" are mutually exclusive");
+
+			}
+			return result;
+		}
+
+		@POST
+		public FormValidation doCheckBmcWfi(@QueryParameter String mper, @QueryParameter String wfi) {
+
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			if(wfi.equals("Y") && mper.equals("MULT"))
+				result=FormValidation.warning("WFI and MPER=MULT are mutually exclusive");
+
+			return result;
+		}
 
 		//doFill{fieldname}Items		
 		

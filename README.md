@@ -5,10 +5,7 @@
 2. [Overview](#overview)
 3. [Authenticating the SSL Certificate](#cert)
 4. [Screenshots](#screenshots)
-5. [CFA Job Logs](#joblogs)
-6. [Commitza Frequency Report for DB2](#db2rpt)
-7. [Commit Frequency Report for IMS](#imsrpt)
-8. [Checkpoint/Commit Distribution Action](#imsrpt)
+5. [Job Logs](#joblogs)6. 
 9. [Required information for diagnosing problems](#diag)
 
 ## Requirements <a name="req"></a>
@@ -20,15 +17,18 @@
 
 ## Overview <a name="overview"></a>
 DevOps for BMC AMI Change Manager for IMS TM plugin can be invoked as a Jenkins job's **build step**. It allows assimilation of BMC AMI Change Manager for IMS TM capabilities in Dev/Ops processes. It takes advantage of BMC AMI Change Manager for IMS TM functionality to dynamically activate changes to IMS objects.
-![BMC build step](https://github.com/jenkinsci/bmc-cfa-plugin/blob/main/src/main/webapp/images/bmc_build_step.jpg)
+![BMC build step](https://github.com/jenkinsci/bmc-change-manager-imstm-plugin/blob/main/src/main/webapp/images/bmc_build_step.jpg)
 
+It provides the following capabilities:
 - Creating and Editing DELTA Lists.
 - Checking a DELTA List against the IMS control region without implementing the changes. The Check function
 verifies the elements you have inserted or changed on the DELTA List.
 - Executing a DELTA List implements the DELTA List on the IMS control region and logs all of the changes it makes.
+
 The plugin uses z/OSMF REST API to submit the following jobs to run on z/OS.
 - DLPBTSCT - Utility that is used to check or execute DELTA List in batch. BMCXLINK task is not required.
-- DLPYLIST - Sample user exit to create DELTA List records in batch using co
+- DLPYLIST - Sample user exit to create DELTA List records in batch using control cards.
+
 It uses z/OSMF REST API to submit jobs to run on z/OS.
 
 **Notes!**
@@ -63,19 +63,15 @@ where:
   Restart your Java Virtual Machine or your computer.
 
 ## Screenshots: <a name="screenshots"></a>
-![BMC CFA Plugin](https://github.com/jenkinsci/bmc-cfa-plugin/blob/main/src/main/webapp/images/cfa_plugin.JPG)
+![BMC DLP Plugin](https://github.com/jenkinsci/bmc-change-manager-imstm-plugin/blob/main/src/main/webapp/images/dlp_plugin.jpg)
 
 For details of the dialog box fields, click the question mark icon next to each field.
 
-For further information regarding a specific field please refer to BMC AMI Log Analyzer for IMS documentation:
-- [Specifying ANALYZE control statements](https://docs.bmc.com/docs/loganalyzer17/specifying-analyze-control-statements-958587173.html)
-- [Specifying INTERVAL control statements](https://docs.bmc.com/docs/loganalyzer17/specifying-interval-control-statements-958587198.html)
-- [APPCHECK keyword](https://docs.bmc.com/docs/loganalyzer17/appcheck-keyword-958587247.html)
 
 ## Job Logs <a name="joblogs"></a>
 The contents of the Change Manager for IMS TM job spool files are available in Jenkins job **workspace** under the respective build number folder.
 
-![CFA job logs](https://github.com/jenkinsci/bmc-cfa-plugin/blob/main/src/main/webapp/images/workspace.jpg)
+![DLP job logs](https://github.com/jenkinsci/bmc-change-manager-imstm-plugin/blob/main/src/main/webapp/images/workspace.jpg)
 
 
 ## Required information for diagnosing problems <a name="diag"></a>

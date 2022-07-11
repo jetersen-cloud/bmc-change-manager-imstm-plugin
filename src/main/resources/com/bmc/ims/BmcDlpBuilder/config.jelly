@@ -1,7 +1,7 @@
  <?jelly escape-by-default='true'?>
  <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout"
          xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:g="glide" >
-	<link rel="stylesheet" type="text/css" href="${rootURL}/plugin/DevOps4DLP/myStyle.css" />
+
 	
 	<!-- Make sure to update the totalNumOfoperands var inside BuildStepController.js for any new added operand -->
 	  
