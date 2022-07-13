@@ -1111,6 +1111,34 @@ public class BmcDlpBuilder extends Builder implements SimpleBuildStep, Serializa
 		}
 
 		@POST
+		public FormValidation doCheckLib(@QueryParameter String value)
+		{
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			String tempValue = StringUtils.trimToEmpty(value);
+			if (tempValue.isEmpty())
+				result = FormValidation.error("Load library is rerquired!");
+
+			return result;
+		}
+		@POST
+		public FormValidation doCheckElementName(@QueryParameter String value)
+		{
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			String tempValue = StringUtils.trimToEmpty(value);
+			if (tempValue.isEmpty())
+				result = FormValidation.error("A name is required for this element!");
+
+			return result;
+		}
+
+
+		@POST
 		public FormValidation doCheckPsb(@QueryParameter String value)
 		{
 			FormValidation result = null;
@@ -1169,7 +1197,7 @@ public class BmcDlpBuilder extends Builder implements SimpleBuildStep, Serializa
 
 
 		@POST
-		public FormValidation doCheckAppfp(@QueryParameter String value, @QueryParameter String lang ,@QueryParameter String ty) {
+		public FormValidation doCheckAppfp(@QueryParameter String value, @QueryParameter boolean bmcLang,@QueryParameter String lang ,@QueryParameter String ty) {
 
 			FormValidation result = null;
 
@@ -1177,10 +1205,10 @@ public class BmcDlpBuilder extends Builder implements SimpleBuildStep, Serializa
 
 			if(value.equals("Y"))
 			{
-				if(lang.equals("JAVA"))
+				if(lang.equals("JAVA") && bmcLang==true)
 					result=FormValidation.warning("FP="+ value+" and LANG="+lang+" are mutually exclusive");
 				else if(ty.equals("BMP") || ty.equals("BATCH"))
-					result=FormValidation.warning("DYN="+ value+" and RES=Y are mutually exclusive");
+					result=FormValidation.warning("FP="+ value+" and TY="+ty+" are mutually exclusive");
 			}
 
 			return result;
@@ -1254,6 +1282,127 @@ public class BmcDlpBuilder extends Builder implements SimpleBuildStep, Serializa
 			return result;
 		}
 
+		@POST
+		public FormValidation doCheckMseg(@QueryParameter String value, @QueryParameter String tranfp) {
+
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			if(value.equals("Y") && tranfp.equals("Y"))
+				result=FormValidation.warning("Fast Path transactions must have MSEG=N (The incoming message can't contain more than one segment)." );
+
+			return result;
+		}
+
+		@POST
+		public FormValidation doCheckResp(@QueryParameter String value, @QueryParameter String tranfp) {
+
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			if( tranfp.equals("Y") && value.equals("N"))
+				result=FormValidation.warning("Fast Path transactions must have RESP=Y" );
+
+			return result;
+		}
+
+		@POST
+		public FormValidation doCheckTraninq(@QueryParameter String value, @QueryParameter String recv) {
+
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			if( value.equals("N") && recv.equals("N"))
+				result=FormValidation.warning("INQ=N and RECV=N are mutually exclusive" );
+
+			return result;
+		}
+
+		@POST
+		public FormValidation doCheckRecv(@QueryParameter String value, @QueryParameter String traninq, @QueryParameter String tranfp) {
+
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			if( value.equals("N"))
+			{
+				if( traninq.equals("N"))
+					result=FormValidation.warning("RECV=N and INQ=N are mutually exclusive" );
+				if( tranfp.equals("Y"))
+					result=FormValidation.warning("RECV=N and FP=Y are mutually exclusive" );
+			}
+			return result;
+		}
+
+		@POST
+		public FormValidation doCheckTranfp(@QueryParameter String value, @QueryParameter String mseg, @QueryParameter String recv, @QueryParameter String resp, @QueryParameter String spad)
+ {
+
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			if( value.equals("Y"))
+			{
+				if( mseg.equals("Y"))
+					result=FormValidation.warning("FP=Y and MSEG=Y are mutually exclusive" );
+				if( recv.equals("N"))
+					result=FormValidation.warning("FP=Y and RECV=N are mutually exclusive" );
+				if( resp.equals("N"))
+					result=FormValidation.warning("FP=Y and RESP=N are mutually exclusive" );
+				if( spad.equals("STRUNC"))
+					result=FormValidation.warning("FP=Y and SPAD=STRUNC are mutually exclusive" );
+			}
+			return result;
+		}
+
+		@POST
+		public FormValidation doCheckMper(@QueryParameter String value, @QueryParameter String wfi) {
+
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			if(wfi.equals("Y") && value.equals("MULT"))
+				result=FormValidation.warning("MPER=MULT and WFI=Y are mutually exclusive");
+
+			return result;
+		}
+
+		@POST
+		public FormValidation doCheckBmcspad(@QueryParameter boolean value, @QueryParameter String spad, @QueryParameter String tranfp)
+		{
+
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			if( value==true)
+			{
+				if( tranfp.equals("Y") && spad.equals("STRUNC"))
+					result=FormValidation.warning("FP=Y and SPAD=STRUNC are mutually exclusive" );
+			}
+			return result;
+		}
+
+		@POST
+		public FormValidation doCheckSpad(@QueryParameter String value,  @QueryParameter String tranfp)
+		{
+
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+
+			if( tranfp.equals("Y") && value.equals("STRUNC"))
+					result=FormValidation.warning("FP=Y and SPAD=STRUNC are mutually exclusive" );
+
+			return result;
+		}
 		//doFill{fieldname}Items		
 		
 		public ListBoxModel doFillApprelgsamItems() {

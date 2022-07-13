@@ -566,7 +566,7 @@
 		 */  
 	
 	function displayRelevantOperands(action, elementType, chunk, stepid)	{		
-		
+		/*
 		if(action=="RELOAD")
 		{
 			// hide the "Operands" section header
@@ -575,11 +575,12 @@
 			else
 				chunk.getElementsByClassName("section-header")[0].style.display="block";
 		}
-		
+		*/
 		var i=Array.from(chunk.parentNode.children).indexOf(chunk);		
 			
   			for(obj of objs)
   			{
+  			/*
   				if(action=="EXECUTE")
   				{
   					// hide all operands
@@ -607,8 +608,8 @@
   					chunk.getElementsByClassName("section-header")[0].style.display="none";
   					
   				}
-  				
-  				else if(obj.action==action)
+  				*/
+  				if(obj.action==action)
   				{
   					
   					for(child of obj.children)
@@ -1124,19 +1125,22 @@
 			selectedData = obj.options[obj.selectedIndex].value;
 			selectedAction=selectedData;
 			
-			selectedElementType= obj.parentNode.parentNode.parentNode.getElementsByTagName("select")[1].value;
-			
-			var current=obj;			
+			var current=obj;
+			while(current.tagName!="DIV")
+			    current=current.parentNode;
 			
 			while(!current.className.includes('repeated-chunk'))				     					     				
 		    	current=current.parentNode;
+
+		    selectedElementType= current.getElementsByTagName("select")[1].value;
 			
 			// Hide any visible help DIVs
 			for (var hlp of current.getElementsByClassName("help"))
 				hlp.style.display="none";
 			
-			var i=Array.from(current.parentNode.children).indexOf(current);	
-			
+			var i=Array.from(current.parentNode.children).indexOf(current);
+
+
 			if(selectedData=="EXECUTE")
 			{
 				//display the RELOAD value in the Action select box, incase it was previously hidden
@@ -1149,39 +1153,48 @@
 					}					
 				}				
 				
-				for( var c of current.getElementsByClassName("setting-name") )	
+				for( var c of current.getElementsByClassName("jenkins-form-label help-sibling") )
 				{
-					if(c.innerText=="Element name" || c.innerText=="Element type" || c.innerText=="Delta list operands")	   	
+					if(c.innerText.includes("Element name") || c.innerText.includes("Element type") || c.innerText.includes("Delta list operands"))
 			   			c.parentNode.style.display = "none";
-			   		else if(c.innerText=="IMS COMMAND")	
+
+			   		else if(c.innerText.includes("IMS COMMAND"))
 			   			c.parentNode.style.display = "block";
 			    }
 				// hide the "Operands" section header
-				operandsSection=current.getElementsByClassName("section-header")[0];
-				while(!operandsSection.className.includes("tr form-group config-table-top-row"))
+				operandsSection=current.getElementsByClassName("jenkins-section__title")[0];
+				while(!operandsSection.className.includes("jenkins-form-item tr"))
 					operandsSection=operandsSection.parentNode;
 				operandsSection.style.display="none";
 			}
 			
 			else if(selectedData=="ADD" || selectedData=="ADDREV" || selectedData=="REVISE" || selectedData=="DELETE" )
 			{
-				if(selectedData=="DELETE")
-					current.getElementsByClassName("section-header")[0].style.display="none";
-				else
-				{
+
 					// display the "Operands" section header
-					operandsSection=current.getElementsByClassName("section-header")[0];
-					while(!operandsSection.className.includes("tr form-group config-table-top-row"))
+					operandsSection=current.getElementsByClassName("jenkins-section__title")[0];
+					while(!operandsSection.className.includes("jenkins-form-item tr"))
 						operandsSection=operandsSection.parentNode;
-					operandsSection.style.display="block";
-				}
-				for( var c of current.getElementsByClassName("setting-name") )	
+					if(selectedData=="DELETE")
+					    operandsSection.style.display="none";
+					else
+					    operandsSection.style.display="block";
+
+				/*for( var c of current.getElementsByClassName("setting-name") )
 				{
 					if(c.innerText=="Element name" || c.innerText=="Element type" || c.innerText=="Delta list operands")	   	
 			   			c.parentNode.style.display = "block";
 			   		else if(c.innerText=="IMS COMMAND")	
 			   			c.parentNode.style.display = "none";
-			   }
+			   }*/
+			   for( var c of current.getElementsByClassName("jenkins-form-label help-sibling") )
+               				{
+               					if(c.innerText.includes("Element name") || c.innerText.includes("Element type") || c.innerText.includes("Delta list operands"))
+               			   			c.parentNode.style.display = "block";
+
+               			   		else if(c.innerText.includes("IMS COMMAND"))
+               			   			c.parentNode.style.display = "none";
+               			    }
 				
 				for(option of document.getElementsByName("elementType")[i].children)
 				{					
@@ -1194,9 +1207,9 @@
 			else if(selectedData=="RELOAD")
 			{
 				if(selectedElementType!="APPLCTN")
-					current.getElementsByClassName("section-header")[0].style.display="block";
+					current.getElementsByClassName("jenkins-section__title")[0].style.display="block";
 				else
-					current.getElementsByClassName("section-header")[0].style.display="none";
+					current.getElementsByClassName("jenkins-section__title")[0].style.display="none";
 				for( var c of current.getElementsByClassName("setting-name") )	
 				{
 					if( c.innerHTML=="IMS COMMAND")	   	
@@ -1228,6 +1241,7 @@
 			populateJcl(stepid,null);	
 			
 		}// end of func
+
 		function findParentJenkinsSection(obj)
 		{
 		    while(obj.tagName!="DIV")

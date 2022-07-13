@@ -1,51 +1,22 @@
 package com.bmc.ims;
 
-/***********************************************************************
- * BMC Software, Inc.
- * Confidential and Proprietary
- * Copyright (c) BMC Software, Inc. 2019
- * All Rights Reserved.
- ***********************************************************************/
-
 import hudson.AbortException;
 import hudson.model.TaskListener;
-
-//import org.json.JSONObject;
-
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-
 import java.io.OutputStream;
-
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.util.*;
-
 import javax.net.ssl.HttpsURLConnection;
-
-import javax.xml.bind.DatatypeConverter;
-
 import org.json.JSONObject;
 import org.json.JSONArray;
-
-//import org.json.JSONArray;
-//import org.json.JSONObject;
-//import com.bmc.db2.acmjauth.ACMGetCredential;
-import java.io.FileNotFoundException;
-import java.net.ConnectException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.nio.charset.Charset;
 
-//import com.bmc.db2.acmjauth.ACMConst;
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.SSLSession;
 
 public class JCLService {
 	private String encodedCredentials = null;

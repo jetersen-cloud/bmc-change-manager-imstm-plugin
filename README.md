@@ -5,7 +5,7 @@
 2. [Overview](#overview)
 3. [Authenticating the SSL Certificate](#cert)
 4. [Screenshots](#screenshots)
-5. [Job Logs](#joblogs)6. 
+5. [Job Logs](#joblogs)
 9. [Required information for diagnosing problems](#diag)
 
 ## Requirements <a name="req"></a>
