@@ -1162,9 +1162,11 @@
 			   			c.parentNode.style.display = "block";
 			    }
 				// hide the "Operands" section header
-				operandsSection=current.getElementsByClassName("jenkins-section__title")[0];
+				operandsSection=current.getElementsByClassName("jenkins-section")[0];
+				/*
 				while(!operandsSection.className.includes("jenkins-form-item tr"))
 					operandsSection=operandsSection.parentNode;
+					*/
 				operandsSection.style.display="none";
 			}
 			
@@ -1172,9 +1174,11 @@
 			{
 
 					// display the "Operands" section header
-					operandsSection=current.getElementsByClassName("jenkins-section__title")[0];
+					operandsSection=current.getElementsByClassName("jenkins-section")[0];
+				/*
 					while(!operandsSection.className.includes("jenkins-form-item tr"))
 						operandsSection=operandsSection.parentNode;
+				*/
 					if(selectedData=="DELETE")
 					    operandsSection.style.display="none";
 					else
@@ -1207,9 +1211,9 @@
 			else if(selectedData=="RELOAD")
 			{
 				if(selectedElementType!="APPLCTN")
-					current.getElementsByClassName("jenkins-section__title")[0].style.display="block";
+					current.getElementsByClassName("jenkins-section")[0].style.display="block";
 				else
-					current.getElementsByClassName("jenkins-section__title")[0].style.display="none";
+					current.getElementsByClassName("jenkins-section")[0].style.display="none";
 				for( var c of current.getElementsByClassName("setting-name") )	
 				{
 					if( c.innerHTML=="IMS COMMAND")	   	

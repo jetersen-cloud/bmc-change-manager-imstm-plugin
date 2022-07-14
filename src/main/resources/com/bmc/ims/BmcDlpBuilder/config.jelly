@@ -17,8 +17,8 @@
 		
 	</script>	
 		
-    <script type="text/javascript" src="${rootURL}/plugin/DevOps4DLP/DlistActions.js"/>	
-	<script type="text/javascript" src="${rootURL}/plugin/DevOps4DLP/BuildStepController.js" />
+    <script type="text/javascript" src="${rootURL}/plugin/bmc-change-manager-imstm/DlistActions.js"/>
+	<script type="text/javascript" src="${rootURL}/plugin/bmc-change-manager-imstm/BuildStepController.js" />
   
 
 	<f:invisibleEntry>
@@ -33,7 +33,7 @@
  	  		
 	<f:section title="Connection Options">
 		<f:entry title="Remote system name" field="server" >
-    		<f:textbox  style="text-transform: uppercase;" default="SYSM.BMC.COM"/>
+    		<f:textbox  style="text-transform: uppercase;" />
   		</f:entry>  
  
 		<f:entry title="Remote system port#" field="port" >
@@ -41,7 +41,7 @@
   		</f:entry> 
   
 		<f:entry title="Remote system user name" field="user"  >
-    		<f:textbox  style="text-transform: uppercase;" default="BOLMZM"/>
+    		<f:textbox  style="text-transform: uppercase;" />
   		</f:entry>  
    
 		<f:entry title="Remote system user password" field="pswd">
@@ -70,11 +70,11 @@
   		
  
  		<f:entry title="DELTA List library" field="dPds"  >
-    		<f:textbox id="dPds-${stepid}"  style="text-transform: uppercase;" default="BOLMZM.JENKINS.DLP.LIST" />
+    		<f:textbox id="dPds-${stepid}"  style="text-transform: uppercase;"  />
   		</f:entry>
   
  		<f:entry title="DELTA List name" field="dlist" clazz="required" checkMessage="Required field">
-    		<f:textbox id="dlist-${stepid}" style="text-transform: uppercase;" default="SAMP01"/>
+    		<f:textbox id="dlist-${stepid}" style="text-transform: uppercase;" />
   		</f:entry>
   
   		<f:entry title="Target IMSID or GROUP" field="target" >
