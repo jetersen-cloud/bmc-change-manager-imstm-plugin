@@ -7,7 +7,7 @@
         <version>4.16</version>
         <relativePath />
     </parent>
-    <groupId>com.bmc.ibm</groupId>
+    <groupId>com.bmc.ims</groupId>
     <artifactId>bmc-change-manager-imstm</artifactId>
 	<version>${changelist}</version>
     <packaging>hpi</packaging>
