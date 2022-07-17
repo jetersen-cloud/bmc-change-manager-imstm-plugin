@@ -45,8 +45,8 @@ It uses z/OSMF REST API to submit jobs to run on z/OS.
 
   An administrator will have to approve via Manage Jenkins -> In-process Script Approval
 
-![ In-process Script Approval](https://github.com/jenkinsci/bmc-cfa-plugin/blob/main/src/main/webapp/images/In_process_script_approv.JPG)
-![ Script Approval](https://github.com/jenkinsci/bmc-cfa-plugin/blob/main/src/main/webapp/images/ScriptApproval.JPG)
+![ In-process Script Approval](https://github.com/jenkinsci/bmc-cfa-plugin/blob/master/src/main/webapp/images/In_process_script_approv.JPG)
+![ Script Approval](https://github.com/jenkinsci/bmc-cfa-plugin/blob/master/src/main/webapp/images/ScriptApproval.JPG)
 
 
 ## Authenticating the SSL Certificate <a name="cert"></a>
@@ -63,7 +63,7 @@ where:
   Restart your Java Virtual Machine or your computer.
 
 ## Screenshots: <a name="screenshots"></a>
-![BMC DLP Plugin](https://github.com/jenkinsci/bmc-change-manager-imstm-plugin/blob/main/src/main/webapp/images/dlp_plugin.jpg)
+![BMC DLP Plugin](https://github.com/jenkinsci/bmc-change-manager-imstm-plugin/blob/master/src/main/webapp/images/dlp_plugin.jpg)
 
 For details of the dialog box fields, click the question mark icon next to each field.
 
@@ -71,13 +71,13 @@ For details of the dialog box fields, click the question mark icon next to each 
 ## Job Logs <a name="joblogs"></a>
 The contents of the Change Manager for IMS TM job spool files are available in Jenkins job **workspace** under the respective build number folder.
 
-![DLP job logs](https://github.com/jenkinsci/bmc-change-manager-imstm-plugin/blob/main/src/main/webapp/images/workspace.jpg)
+![DLP job logs](/src/main/webapp/images/workspace.jpg)
 
 
 ## Required information for diagnosing problems <a name="diag"></a>
 1.	Identify **plugin version**:
       **Jenkins**->**Manage Jenkins**->**Manage Plugins**->**Installed**
-      ![BMC plugin version](https://github.com/jenkinsci/bmc-cfa-plugin/blob/main/src/main/webapp/images/plugin_version.JPG)
+      ![BMC plugin version](https://github.com/jenkinsci/bmc-cfa-plugin/blob/master/src/main/webapp/images/plugin_version.JPG)
 2.	**Jenkins Job logs**  
       * Navigate to  **C:\Users\\*user_name*\\AppData\Local\Jenkins\.jenkins**
       * Select **jobs** directory

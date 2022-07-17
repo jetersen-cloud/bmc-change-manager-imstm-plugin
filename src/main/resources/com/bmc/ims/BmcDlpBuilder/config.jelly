@@ -123,62 +123,62 @@
 				  		
 				  			<!-- DB Operands-->
 
-								    <f:optionalBlock name="bmcDbNewname" field="bmcDbNewname" title="NEW" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obnew">
+								    <f:optionalBlock name="bmcDbNewname" field="bmcDbNewname" checked="${ e.isBmcDbNewname()}" title="NEW" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obnew">
 								      <f:entry field="dbnewname">								        
 								        <f:textbox name="dbnewname" value="${e.dbnewname}" style="text-transform: uppercase;"/>	
 								      </f:entry>
 								    </f:optionalBlock>								 
 
-								    <f:optionalBlock name="bmcDbRes" field="bmcDbRes" title="RES" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obdbres" >
+								    <f:optionalBlock name="bmcDbRes" field="bmcDbRes" checked="${ e.isBmcDbRes()}" title="RES" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obdbres" >
 								     <f:entry field="dbres">
 								        <f:select clazz="dbres" name="dbres" value="${e.dbres}" onfocus="this.oldvalue = this.value;"   onchange="toggleOptionalOperands(this,${stepid})"></f:select>
 								      </f:entry>
 								    </f:optionalBlock>
 
-								    <f:optionalBlock name="bmcAcc" field="bmcAcc" title="ACC" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obacc">
+								    <f:optionalBlock name="bmcAcc" field="bmcAcc" checked="${ e.isBmcAcc()}" title="ACC" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obacc">
 								      <f:entry field="acc">
 								        <f:select clazz="acc" name="acc" value="${e.acc}"  onfocus="this.oldvalue = this.value;"  onchange="toggleOptionalOperands(this,${stepid})" >	</f:select>
 								      </f:entry>
 								    </f:optionalBlock>								 
 
-								    <f:optionalBlock name="bmcAuto" field="bmcAuto"  title="AUTO" inline="true"   help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obauto" >
+								    <f:optionalBlock name="bmcAuto" field="bmcAuto" checked="${ e.isBmcAuto()}" title="AUTO" inline="true"   help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obauto" >
 								      <f:entry field="auto">
 								        <f:select clazz="auto" name="auto" value="${e.auto}"  onfocus="this.oldvalue = this.value;"  onchange="toggleOptionalOperands(this,${stepid})" >	</f:select>	
 								      </f:entry>
 							        </f:optionalBlock>
 
-								    <f:optionalBlock name="bmcRand" field="bmcRand"  title="RAND" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obrand">
+								    <f:optionalBlock name="bmcRand" field="bmcRand"  checked="${ e.isBmcRand()}" title="RAND" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obrand">
 								      <f:entry field="rand">
 								        <f:select clazz="rand" name="rand" value="${e.rand}"   onfocus="this.oldvalue = this.value;"  onchange="toggleOptionalOperands(this,${stepid})">	</f:select>	
 								      </f:entry>
 								    </f:optionalBlock>								 
 
-								    <f:optionalBlock name="bmcRandOnly" field="bmcRandOnly"  title="RANDONLY" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obrandonly">
+								    <f:optionalBlock name="bmcRandOnly" field="bmcRandOnly" checked="${e.isBmcRandOnly()}" title="RANDONLY" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obrandonly">
 								      <f:entry field="randonly">
 								        <f:select clazz="randonly" name="randonly"  value="${e.randonly}"   onfocus="this.oldvalue = this.value;"  onchange="toggleOptionalOperands(this,${stepid})">	</f:select>		
 								      </f:entry>
 								    </f:optionalBlock>
 
-								    <f:optionalBlock name="bmcRldAreas" field="bmcRldAreas"  title="RLDAREAS" inline="true"   help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obrldareas">
+								    <f:optionalBlock name="bmcRldAreas" field="bmcRldAreas" checked="${ e.isBmcRldAreas()}" title="RLDAREAS" inline="true"   help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obrldareas">
 								      <f:entry field="rldareas">
 								        <f:select clazz="rldareas" name="rldareas" value="${e.rldareas}" onfocus="this.oldvalue = this.value;"  onchange="toggleOptionalOperands(this,${stepid})"  >	</f:select>			
 								      </f:entry>
 								    </f:optionalBlock>
 
-								    <f:optionalBlock name="bmcIoVfExt" field="bmcIoVfExt"   title="IOVFEXT" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obiovfext" >
+								    <f:optionalBlock name="bmcIoVfExt" field="bmcIoVfExt" checked="${ e.isBmcIoVfExt()}"  title="IOVFEXT" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obiovfext" >
 								      <f:entry field="iovfext">
 								        <f:select clazz="iovfext" name="iovfext" value="${e.iovfext}"   onfocus="this.oldvalue = this.value;"  onchange="toggleOptionalOperands(this,${stepid})">	</f:select>			
 								      </f:entry>
 								    </f:optionalBlock>								 
 
-								    <f:optionalBlock name="bmcDbRelGsam" field="bmcDbRelGsam" title="RELGSAM" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obdbrelgsam" >
+								    <f:optionalBlock name="bmcDbRelGsam" field="bmcDbRelGsam" checked="${ e.isBmcDbRelGsam()}" title="RELGSAM" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obdbrelgsam" >
 								      <f:entry field="dbrelgsam">
 								        <f:select clazz="dbrelgsam" name="dbrelgsam" value="${e.dbrelgsam}"   onfocus="this.oldvalue = this.value;"  onchange="toggleOptionalOperands(this,${stepid})">	</f:select>			
 								      </f:entry>
 								    </f:optionalBlock>								 
 
 
-								    <f:optionalBlock name="bmcDbCopyAcb" field="bmcDbCopyAcb" title="COPYACB" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obcopyacb" >
+								    <f:optionalBlock name="bmcDbCopyAcb" field="bmcDbCopyAcb" checked="${e.isBmcDbCopyAcb()}" title="COPYACB" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obcopyacb" >
 								      <f:entry field="dbcopyacb">
 								        <f:select clazz="dbcopyacb" name="dbcopyacb" value="${e.dbcopyacb}"   onfocus="this.oldvalue = this.value;"  onchange="toggleOptionalOperands(this,${stepid})">	</f:select>			
 								      </f:entry>
@@ -187,71 +187,71 @@
 										  		
 							<!-- APPL Operands-->
 
-								    <f:optionalBlock name="bmcAppNew" field="bmcAppNew" title="NEW" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obnew">
+								    <f:optionalBlock name="bmcAppNew" field="bmcAppNew" checked="${e.isBmcAppNew()}" title="NEW" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obnew">
 								      <f:entry field="appnewname">
 								        <f:textbox name="appnewname" value="${e.appnewname}" style="text-transform: uppercase;"/>	
 								      </f:entry>
 								    </f:optionalBlock>								 
 
-								    <f:optionalBlock name="bmcAppRes" field="bmcAppRes"  title="RES" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obappres">
+								    <f:optionalBlock name="bmcAppRes" field="bmcAppRes" checked="${e.isBmcAppRes()}" title="RES" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obappres">
 								      <f:entry field="appres">
 								        <f:select clazz="appres" name="appres"  value="${e.appres}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})"  >	</f:select>	
 								      </f:entry>
 								    </f:optionalBlock>
 
-								    <f:optionalBlock name="bmcTy" field="bmcTy"  title="TY" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obty">
+								    <f:optionalBlock name="bmcTy" field="bmcTy"  title="TY" checked="${e.isBmcTy()}" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obty">
 								      <f:entry field="ty">
 								        <f:select clazz="ty" name="ty"  value="${e.ty}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})"   >	</f:select>	
 								      </f:entry>
 								    </f:optionalBlock>								 
 
-								    <f:optionalBlock name="bmcSchd" field="bmcSchd" title="SCHD" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obschd">
+								    <f:optionalBlock name="bmcSchd" field="bmcSchd" checked="${e.isBmcSchd()}" title="SCHD" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obschd">
 								      <f:entry field="schd">
 								        <f:select clazz="schd" name="schd"  value="${e.schd}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})" >	</f:select>		
 								      </f:entry>
 								    </f:optionalBlock>								 
 
-								    <f:optionalBlock name="bmcAppFp" field="bmcAppFp"  title="FP" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obappfp">
+								    <f:optionalBlock name="bmcAppFp" field="bmcAppFp" checked="${e.isBmcAppFp()}"  title="FP" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obappfp">
 								      <f:entry field="appfp">
 								        <f:select clazz="appfp" name="appfp"  value="${e.appfp}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})" >	</f:select>		
 								      </f:entry>
 								    </f:optionalBlock>								 
 
-								    <f:optionalBlock name="bmcDyn" field="bmcDyn"  title="DYN" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obdyn">
+								    <f:optionalBlock name="bmcDyn" field="bmcDyn" checked="${e.isBmcDyn()}"  title="DYN" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obdyn">
 
 								      <f:entry field="dyn">
 								        <f:select clazz="dyn" name="dyn"  value="${e.dyn}" onfocus="this.oldvalue = this.value;"  onchange="toggleOptionalOperands(this,${stepid})" >	</f:select>		
 								      </f:entry>
 								    </f:optionalBlock>								 
 
-								    <f:optionalBlock name="bmcGpsb" field="bmcGpsb"  title="GPSB" inline="true"  >
+								    <f:optionalBlock name="bmcGpsb" field="bmcGpsb" checked="${e.isBmcGpsb()}" title="GPSB" inline="true"  >
 
 								      <f:entry field="gpsb">
 								        <f:select clazz="gpsb" name="gpsb"  value="${e.gpsb}"  onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})">	</f:select>		
 								      </f:entry>
 								    </f:optionalBlock>								 
 
-								    <f:optionalBlock name="bmcLang" field="bmcLang" title="LANG" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/oblang" >
+								    <f:optionalBlock name="bmcLang" field="bmcLang" title="LANG" checked="${e.isBmcLang()}" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/oblang" >
 								      <f:entry field="lang">
 								        <f:select clazz="lang" name="lang"   value="${e.lang}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})" >	</f:select>	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcApptls" field="bmcApptls"  title="TLS" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obapptls">
+									<f:optionalBlock	name="bmcApptls" field="bmcApptls" checked="${e.isBmcApptls()}" title="TLS" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obapptls">
 
 								      <f:entry field="apptls">
 								        <f:select clazz="apptls" name="apptls"  value="${e.apptls}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})"  >	</f:select>		
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-								    <f:optionalBlock name="bmcAppRelGsam" field="bmcAppRelGsam"  title="RELGSAM" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obapprelgsam" >
+								    <f:optionalBlock name="bmcAppRelGsam" field="bmcAppRelGsam" checked="${e.isBmcAppRelGsam()}" title="RELGSAM" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obapprelgsam" >
 
 								      <f:entry field="apprelgsam">
 								        <f:select clazz="apprelgsam" name="apprelgsam" value="${e.apprelgsam}"   onfocus="this.oldvalue = this.value;"  onchange="toggleOptionalOperands(this,${stepid})">	</f:select>			
 								      </f:entry>
 								    </f:optionalBlock>								 
 
-								    <f:optionalBlock name="bmcAppCopyAcb" field="bmcAppCopyAcb"  inline="true" title="COPYACB"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obcopyacb" >
+								    <f:optionalBlock name="bmcAppCopyAcb" field="bmcAppCopyAcb"  inline="true" title="COPYACB" checked="${ e.isBmcAppCopyAcb()}"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obcopyacb" >
 
 								      <f:entry field="appcopyacb">
 								        <f:select clazz="appcopyacb" name="appcopyacb" value="${e.appcopyacb}"   onfocus="this.oldvalue = this.value;"  onchange="toggleOptionalOperands(this,${stepid})">	</f:select>			
@@ -261,21 +261,21 @@
 							<!-- RTCODE Operands -->
 							
 
-									<f:optionalBlock	name="bmcRtcsNew" field="bmcRtcsNew"  title="NEW" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obnew">
+									<f:optionalBlock	name="bmcRtcsNew" field="bmcRtcsNew" checked="${e.isBmcRtcsNew()}" title="NEW" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obnew">
 
 								      <f:entry field="rtcnewname">
 								        <f:textbox name="rtcnewname" value="${e.rtcnewname}" style="text-transform: uppercase;"/>
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcRtcsPsbName" field="bmcRtcsPsbName"  title="NAME" inline="true" >
+									<f:optionalBlock	name="bmcRtcsPsbName" field="bmcRtcsPsbName"  checked="${e.isBmcRtcsPsbName()}" title="NAME" inline="true" >
 
 								      <f:entry field="rtcpsbname">
 								        <f:textbox name="rtcpsbname" value="${e.rtcpsbname}" style="text-transform: uppercase;"/>		
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcRtcInq" field="bmcRtcInq"  title="INQ" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obrtcinq">
+									<f:optionalBlock	name="bmcRtcInq" field="bmcRtcInq" checked="${e.isBmcRtcInq()}"  title="INQ" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obrtcinq">
 
 								      <f:entry field="rtcinq">
 								        <f:select clazz="rtcinq" name="rtcinq"  value="${e.rtcinq}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})" >	</f:select>	
@@ -287,231 +287,231 @@
 					<!-- TRANSACT Operands -->							
 						
 
-									<f:optionalBlock	name="bmcPsb" field="bmcPsb"  title="PSB" inline="true" >
+									<f:optionalBlock	name="bmcPsb" field="bmcPsb"  checked="${e.isBmcPsb()}" title="PSB" inline="true" >
 
 								      <f:entry field="psb">
 								        <f:textbox name="psb" value="${e.psb}" style="text-transform: uppercase;"/>	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcTranNewName" field="bmcTranNewName"  title="NEW" inline="true"  >
+									<f:optionalBlock	name="bmcTranNewName" field="bmcTranNewName" checked="${e.isBmcTranNewName()}"  title="NEW" inline="true"  >
 
 								      <f:entry field="trannewname">
 								        <f:textbox name="trannewname" value="${e.trannewname}" style="text-transform: uppercase;"/>
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcWfi" field="bmcWfi"  title="WFI" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obwfi">
+									<f:optionalBlock	name="bmcWfi" field="bmcWfi"  title="WFI" checked="${e.isBmcWfi()}" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obwfi">
 
 								      <f:entry field="wfi">
 								        <f:select clazz="wfi" name="wfi" value="${e.wfi}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})"  >	</f:select>	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcNpri" field="bmcNpri"  title="NPRI" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obnpri">
+									<f:optionalBlock	name="bmcNpri" field="bmcNpri"  checked="${e.isBmcNpri()}" title="NPRI" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obnpri">
 
 								      <f:entry field="npri">
 								        <f:number name="npri" value="${e.npri}"  default="1" />	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcLpri" field="bmcLpri"  title="LPRI" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/oblpri">
+									<f:optionalBlock	name="bmcLpri" field="bmcLpri" checked="${e.isBmcLpri()}" title="LPRI" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/oblpri">
 
 								      <f:entry field="lpri">
 								        <f:number name="lpri" value="${e.lpri}"  default="1" />	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcLco" field="bmcLco"  title="LCO" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/oblco">
+									<f:optionalBlock	name="bmcLco" field="bmcLco"  checked="${e.isBmcLco()}" title="LCO" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/oblco">
 
 								      <f:entry field="lco">
 								        <f:number name="lco" value="${e.lco}"  default="65535" />
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcMseg" field="bmcMseg"  title="MSEG" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmseg">
+									<f:optionalBlock	name="bmcMseg" field="bmcMseg"  checked="${e.isBmcMseg()}" title="MSEG" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmseg">
 
 								      <f:entry field="mseg">
 								       	<f:select clazz="mseg" name="mseg"  value="${e.mseg}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})"  >	</f:select>	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcResp" field="bmcResp"  title="RESP" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obresp">
+									<f:optionalBlock	name="bmcResp" field="bmcResp"  checked="${e.isBmcResp()}" title="RESP" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obresp">
 
 								      <f:entry field="resp">
 								       	<f:select clazz="resp" name="resp"  value="${e.resp}"  onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})" >	</f:select>	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcCl" field="bmcCl"  title="CL" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obcl">
+									<f:optionalBlock	name="bmcCl" field="bmcCl" checked="${e.isBmcCl()}" title="CL" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obcl">
 
 								      <f:entry field="cl">
 								       	<f:number name="cl" value="${e.cl}"  default="1" />	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcPlc" field="bmcPlc"  title="PLC" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obplc">
+									<f:optionalBlock	name="bmcPlc" field="bmcPlc" checked="${e.isBmcPlc()}" title="PLC" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obplc">
 
 								      <f:entry field="plc">
 								       	<f:number name="plc" value="${e.plc}"  default="65535" />
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcTime" field="bmcTime"  title="TIME" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obtime">
+									<f:optionalBlock	name="bmcTime" field="bmcTime" checked="${e.isBmcTime()}" title="TIME" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obtime">
 
 								      <f:entry field="time">
 								       	<f:number name="time" value="${e.time}"  default="65535" />
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcPara" field="bmcPara" title="PARA" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obpara">
+									<f:optionalBlock	name="bmcPara" field="bmcPara" checked="${e.isBmcPara()}" title="PARA" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obpara">
 
 								      <f:entry field="para">
 								       	<f:textbox name="para" value="${e.para}"  default="NONE" style="text-transform: uppercase;" />
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcUschd" field="bmcUschd" title="USCHD" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obuschd">
+									<f:optionalBlock	name="bmcUschd" field="bmcUschd" checked="${e.isBmcUschd()}" title="USCHD" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obuschd">
 
 								      <f:entry field="uschd">
 								       	<f:number name="uschd" value="${e.uschd}" default="1"/>
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcTranInq" field="bmcTranInq"  title="INQ" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obtraninq">
+									<f:optionalBlock	name="bmcTranInq" field="bmcTranInq" checked="${e.isBmcTranInq()}" title="INQ" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obtraninq">
 
 								      <f:entry field="traninq">
 								       	<f:select clazz="traninq" name="traninq"  value="${e.traninq}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})"  >	</f:select>	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcRecv" field="bmcRecv"  title="RECV" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obrecv">
+									<f:optionalBlock	name="bmcRecv" field="bmcRecv"  checked="${e.isBmcRecv()}" title="RECV" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obrecv">
 
 								      <f:entry field="recv">
 								       	<f:select clazz="recv" name="recv" value="${e.recv}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})"   >	</f:select>		
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcTranFp" field="bmcTranFp"  title="FP" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obtranfp">
+									<f:optionalBlock	name="bmcTranFp" field="bmcTranFp" checked="${e.isBmcTranFp()}" title="FP" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obtranfp">
 
 								      <f:entry field="tranfp">
 								       	<f:select clazz="tranfp" name="tranfp" value="${e.tranfp}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})"  >	</f:select>			
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcMper" field="bmcMper" title="MPER" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmper">
+									<f:optionalBlock name="bmcMper" field="bmcMper" title="MPER" checked="${e.isBmcMper()}" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmper">
 
 								      <f:entry field="mper">
 								       	<f:select clazz="mper" name="mper" value="${e.mper}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})"  >	</f:select>	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcUc" field="bmcUc" title="UC" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obuc">
+									<f:optionalBlock name="bmcUc" field="bmcUc" checked="${e.isBmcUc()}" title="UC" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obuc">
 
 								      <f:entry field="uc">
 								       	<f:select clazz="uc" name="uc" value="${e.uc}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})"  >	</f:select>		
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcSegs"  field="bmcSegs" title="SEGS" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obsegs">
+									<f:optionalBlock name="bmcSegs"  field="bmcSegs" checked="${e.isBmcSegs()}" title="SEGS" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obsegs">
 
 								      <f:entry field="segs">
 								       	<f:number name="segs" value="${e.segs}" default="0"/>	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcOseg"  field="bmcOseg" title="OSEG" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/oboseg">
+									<f:optionalBlock name="bmcOseg"  field="bmcOseg" checked="${e.isBmcOseg()}" title="OSEG" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/oboseg">
 
 								      <f:entry field="oseg">
 								       	<f:number name="oseg" value="${e.oseg}" default="0" />	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcMsc" filed="bmcMsc" title="MSC" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmsc">
+									<f:optionalBlock name="bmcMsc" filed="bmcMsc" checked="${e.isBmcMsc()}" title="MSC" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmsc">
 
 								      <f:entry field="msc">
 								       	<f:select clazz="msc" name="msc" value="${e.msc}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})"  >	</f:select>
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcDc" field="bmcDc" title="DC" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obdc">
+									<f:optionalBlock name="bmcDc" field="bmcDc" checked="${e.isBmcDc()}" title="DC" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obdc">
 
 								      <f:entry field="dc">
 								       	<f:select clazz="dc" name="dc" value="${e.dc}"  onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})" >	</f:select>	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcSer"  field="bmcSer" title="SER" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obser">
+									<f:optionalBlock name="bmcSer"  field="bmcSer" checked="${e.isBmcSer()}" title="SER" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obser">
 
 								      <f:entry field="ser">
 								       	<f:select clazz="ser" name="ser" value="${e.ser}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})"  >	</f:select>	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock	name="bmcEmhs" field="bmcEmhs" title="EMHS" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obemhs">
+									<f:optionalBlock	name="bmcEmhs" field="bmcEmhs" checked="${e.isBmcEmhs()}" title="EMHS" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obemhs">
 
 								      <f:entry field="emhs">
-								       	<f:number name="emhs" value="${e.emhs}" />			
+								       	<f:number name="emhs" placeholder="12-30720" max="30720" min="12"/>
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcEdit" field="bmcEdit" title="EDIT" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obedit">
+									<f:optionalBlock name="bmcEdit" field="bmcEdit" checked="${e.isBmcEdit()}" title="EDIT" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obedit">
 
 								      <f:entry field="edit">
 								       	<f:textbox name="edit" value="${e.edit}" style="text-transform: uppercase;"/>		
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcLsid" field="bmcLsid" title="LSID" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/oblsid">
+									<f:optionalBlock name="bmcLsid" field="bmcLsid" checked="${e.isBmcLsid()}" title="LSID" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/oblsid">
 
 								      <f:entry field="lsid">
 								       	<f:number name="lsid" value="${e.lsid}" />
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcRsid" field="bmcRsid" title="RSID" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obrsid">
+									<f:optionalBlock name="bmcRsid" field="bmcRsid" checked="${e.isBmcRsid()}" title="RSID" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obrsid">
 
 								      <f:entry field="rsid">
 								       	<f:number name="rsid" value="${e.rsid}" />
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcSpa"  field="bmcSpa" title="SPA" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obspa">
+									<f:optionalBlock name="bmcSpa"  field="bmcSpa" checked="${e.isBmcSpa()}" title="SPA" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obspa">
 
 								      <f:entry field="spa">
 								       	<f:number name="spa" value="${e.spa}" />
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcSpad" field="bmcSpad" title="SPAD" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obspad">
+									<f:optionalBlock name="bmcSpad" field="bmcSpad" checked="${e.isBmcSpad()}" title="SPAD" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obspad">
 
 								      <f:entry field="spad">
 								       	<f:select clazz="spad" name="spad" value="${e.spad}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})" >	</f:select>	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcMreg" field="bmcMreg" title="MREG" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmreg">
+									<f:optionalBlock name="bmcMreg" field="bmcMreg" checked="${e.isBmcMreg()}" title="MREG" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmreg">
 
 								      <f:entry field="mreg">
 								       	<f:number name="mreg" value="${e.mreg}" default="0" />	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcAoi" field="bmcAoi" title="AOI" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obaoi">
+									<f:optionalBlock name="bmcAoi" field="bmcAoi" checked="${e.isBmcAoi()}" title="AOI" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obaoi">
 
 								      <f:entry field="aoi">
 								       	<f:select clazz="aoi" name="aoi" value="${e.aoi}"  onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})" >	</f:select>	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcTls" field="bmcTls" title="TLS" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obtrantls">
+									<f:optionalBlock name="bmcTls" field="bmcTls" checked="${e.isBmcTls()}" title="TLS" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obtrantls">
 
 								      <f:entry field="trantls">
 								       	<f:select clazz="trantls" name="trantls"  value="${e.trantls}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})"  >	</f:select>	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcExptm" field="bmcExptm" title="EXPTM" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obexptm">
+									<f:optionalBlock name="bmcExptm" field="bmcExptm" checked="${e.isBmcExptm()}" title="EXPTM" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obexptm">
 
 								      <f:entry field="exptm">
 								       	<f:number name="exptm" value="${e.exptm}" default="0" />	
@@ -522,21 +522,21 @@
 					<!-- TERMINAL Operands -->
 					
 
-									<f:optionalBlock name="bmcTermMask" filed="bmcTermMask" title="MASK" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmask">
+									<f:optionalBlock name="bmcTermMask" filed="bmcTermMask" checked="${e.isBmcTermMask()}" title="MASK" inline="true" help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmask">
 
 								      <f:entry field="terminalmask">
 								       	<f:textbox name="terminalmask" value="${e.terminalmask}" style="text-transform: uppercase;"/>
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcTermNew" field="bmcTermNew" title="NEW" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obnew">
+									<f:optionalBlock name="bmcTermNew" field="bmcTermNew" checked="${e.isBmcTermNew()}" title="NEW" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obnew">
 
 								      <f:entry field="terminalnewname">
 								       	<f:textbox name="terminalnewname" value="${e.terminalnewname}" style="text-transform: uppercase;"/>
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcSign" field="bmcSign" title="SIGN" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obsign">
+									<f:optionalBlock name="bmcSign" field="bmcSign" checked="${e.isBmcSign()}" title="SIGN" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obsign">
 
 								      <f:entry field="sign">
 								       	<f:select clazz="sign" name="sign" value="${e.sign}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})"  >	</f:select>
@@ -548,35 +548,35 @@
 					<!-- LTERM Operands -->
 					
 
-									<f:optionalBlock name="bmcLtermMask"  field="bmcLtermMask" title="MASK" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmask">
+									<f:optionalBlock name="bmcLtermMask"  field="bmcLtermMask" checked="${e.isBmcLtermMask()}" title="MASK" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmask">
 
 								      <f:entry field="ltermmask">
 								       	<f:textbox name="ltermmask" value="${e.ltermmask}" style="text-transform: uppercase;"/>
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcLtermNew" field="bmcLtermNew"  title="NEW" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obnew">
+									<f:optionalBlock name="bmcLtermNew" field="bmcLtermNew"  checked="${e.isBmcLtermNew()}" title="NEW" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obnew">
 
 								      <f:entry field="ltermnewname">
 								       	<f:textbox name="ltermnewname" value="${e.ltermnewname}" style="text-transform: uppercase;"/>
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcAss" field="bmcAss" title="ASS" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obass">
+									<f:optionalBlock name="bmcAss" field="bmcAss" checked="${e.isBmcAss()}" title="ASS" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obass">
 
 								      <f:entry field="ass">
 								       	<f:textbox name="ass" value="${e.ass}" style="text-transform: uppercase;"/>
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcMsn" field="bmcMsn" title="MSC" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmsn">
+									<f:optionalBlock name="bmcMsn" field="bmcMsn" checked="${e.isBmcMsn()}" title="MSC" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmsn">
 
 								      <f:entry field="msn">
 								       	<f:textbox name="msn" value="${e.msn}" style="text-transform: uppercase;"/>
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-									<f:optionalBlock name="bmcL61" field="bmcL61" title="L61" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obl61">
+									<f:optionalBlock name="bmcL61" field="bmcL61" checked="${e.isBmcL61()}" title="L61" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obl61">
 
 								      <f:entry field="l61">
 								       	<f:select clazz="l61" name="l61" value="${e.l61}" onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})"  >	</f:select>
@@ -587,21 +587,21 @@
 														
 					<!-- SUBPOOL Operands -->			
 
-								    <f:optionalBlock name="bmcSpMask" filed="bmcSpMask" title="MASK" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmask">
+								    <f:optionalBlock name="bmcSpMask" filed="bmcSpMask" checked="${e.isBmcSpMask()}" title="MASK" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmask">
 
 								      <f:entry field="subpoolmask">
 								        <f:textbox name="subpoolmask" value="${e.subpoolmask}" style="text-transform: uppercase;"/>	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-								    <f:optionalBlock name="bmcSpNewName" filed="bmcSpNewName" title="NEW" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obnew">
+								    <f:optionalBlock name="bmcSpNewName" filed="bmcSpNewName" checked="${e.isBmcSpNewName()}" title="NEW" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obnew">
 
 								      <f:entry field="subpoolnewname">
 								        <f:textbox name="subpoolnewname" value="${e.subpoolnewname}" style="text-transform: uppercase;"/>	
 								      </f:entry>
 								    </f:optionalBlock>								  
 
-								    <f:optionalBlock name="bmcMsg" field="bmcMsg" title="MSG" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmsg">
+								    <f:optionalBlock name="bmcMsg" field="bmcMsg" checked="${e.isBmcMsg()}" title="MSG" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obmsg">
 
 								      <f:entry field="msg">
 								        <f:select clazz="msg" name="msg"  value="${e.msg}"  onfocus="this.oldvalue = this.value;" onchange="toggleOptionalOperands(this,${stepid})" >	</f:select>	

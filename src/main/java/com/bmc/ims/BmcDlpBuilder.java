@@ -153,15 +153,16 @@ public class BmcDlpBuilder extends Builder implements SimpleBuildStep, Serializa
 	public void setUser(String user) {
 		this.user = user;
 	}
-/*
-	public void setPswd(String pswd) {
+
+
+	public Secret getPswd() {
+		return pswd;
+	}
+
+	public void setPswd(Secret pswd) {
 		this.pswd = pswd;
 	}
 
-	public String getPswd() {
-		return pswd;
-	}
-*/
 	public void setJclContent(String jclContent) {
 		this.jclContent = jclContent;
 	}
@@ -1111,6 +1112,76 @@ public class BmcDlpBuilder extends Builder implements SimpleBuildStep, Serializa
 		}
 
 		@POST
+		public FormValidation doCheckServer(@QueryParameter String value)
+		{
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			String tempValue = StringUtils.trimToEmpty(value);
+			if (tempValue.isEmpty())
+				result = FormValidation.error("Required field!");
+
+			return result;
+		}
+
+		@POST
+		public FormValidation doCheckPort(@QueryParameter String value)
+		{
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			String tempValue = StringUtils.trimToEmpty(value);
+			if (tempValue.isEmpty())
+				result = FormValidation.error("Required field!");
+
+			return result;
+		}
+
+		@POST
+		public FormValidation doCheckUser(@QueryParameter String value)
+		{
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			String tempValue = StringUtils.trimToEmpty(value);
+			if (tempValue.isEmpty())
+				result = FormValidation.error("Required field!");
+
+			return result;
+		}
+
+		@POST
+		public FormValidation doCheckDPds(@QueryParameter String value)
+		{
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			String tempValue = StringUtils.trimToEmpty(value);
+			if (tempValue.isEmpty())
+				result = FormValidation.error("Required field!");
+
+			return result;
+		}
+
+		@POST
+		public FormValidation doCheckDlist(@QueryParameter String value)
+		{
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			String tempValue = StringUtils.trimToEmpty(value);
+			if (tempValue.isEmpty())
+				result = FormValidation.error("Required field!");
+
+			return result;
+		}
+
+		@POST
 		public FormValidation doCheckLib(@QueryParameter String value)
 		{
 			FormValidation result = null;
@@ -1403,6 +1474,26 @@ public class BmcDlpBuilder extends Builder implements SimpleBuildStep, Serializa
 
 			return result;
 		}
+		@POST
+		public FormValidation doCheckEmhs(@QueryParameter String value, @QueryParameter boolean bmcEmhs, @QueryParameter String tranfp)
+		{
+
+			FormValidation result = null;
+
+			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
+
+			String tempValue = StringUtils.trimToEmpty(value);
+
+			if(bmcEmhs==true) {
+				if (tranfp.equals("N"))
+					result = FormValidation.warning("FP(N) and EMHS>0 are mutually exclusive");
+
+
+			}
+			return result;
+
+		}
+
 		//doFill{fieldname}Items		
 		
 		public ListBoxModel doFillApprelgsamItems() {
