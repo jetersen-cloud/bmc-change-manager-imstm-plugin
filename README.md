@@ -17,7 +17,7 @@
 
 ## Overview <a name="overview"></a>
 DevOps for BMC AMI Change Manager for IMS TM plugin can be invoked as a Jenkins job's **build step**. It allows assimilation of BMC AMI Change Manager for IMS TM capabilities in Dev/Ops processes. It takes advantage of BMC AMI Change Manager for IMS TM functionality to dynamically activate changes to IMS objects.
-![BMC build step](https://github.com/jenkinsci/bmc-change-manager-imstm-plugin/blob/main/src/main/webapp/images/bmc_build_step.jpg)
+![BMC build step](/src/main/webapp/images/bmc_build_step.jpg)
 
 It provides the following capabilities:
 - Creating and Editing DELTA Lists.
@@ -63,7 +63,7 @@ where:
   Restart your Java Virtual Machine or your computer.
 
 ## Screenshots: <a name="screenshots"></a>
-![BMC DLP Plugin](https://github.com/jenkinsci/bmc-change-manager-imstm-plugin/blob/master/src/main/webapp/images/dlp_plugin.jpg)
+![BMC DLP Plugin](/src/main/webapp/images/dlp_plugin.jpg)
 
 For details of the dialog box fields, click the question mark icon next to each field.
 
