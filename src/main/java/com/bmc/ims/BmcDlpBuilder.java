@@ -1410,7 +1410,7 @@ public class BmcDlpBuilder extends Builder implements SimpleBuildStep, Serializa
 		}
 
 		@POST
-		public FormValidation doCheckTranfp(@QueryParameter String value, @QueryParameter String mseg, @QueryParameter String recv, @QueryParameter String resp, @QueryParameter String spad)
+		public FormValidation doCheckTranfp(@QueryParameter String value, @QueryParameter String mseg, @QueryParameter String recv, @QueryParameter String resp, @QueryParameter String spad, @QueryParameter boolean bmcSpad)
  {
 
 			FormValidation result = null;
@@ -1425,7 +1425,7 @@ public class BmcDlpBuilder extends Builder implements SimpleBuildStep, Serializa
 					result=FormValidation.warning("FP=Y and RECV=N are mutually exclusive" );
 				if( resp.equals("N"))
 					result=FormValidation.warning("FP=Y and RESP=N are mutually exclusive" );
-				if( spad.equals("STRUNC"))
+				if( spad.equals("STRUNC") && bmcSpad==true)
 					result=FormValidation.warning("FP=Y and SPAD=STRUNC are mutually exclusive" );
 			}
 			return result;

@@ -451,7 +451,7 @@
 									<f:optionalBlock	name="bmcEmhs" field="bmcEmhs" checked="${e.isBmcEmhs()}" title="EMHS" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obemhs">
 
 								      <f:entry field="emhs">
-								       	<f:number name="emhs" placeholder="12-30720" max="30720" min="12"/>
+								       	<f:number name="emhs" value="${e.emhs}" placeholder="12-30720" max="30720" min="12" clazz="positive-number"/>
 								      </f:entry>
 								    </f:optionalBlock>								  
 
@@ -465,21 +465,21 @@
 									<f:optionalBlock name="bmcLsid" field="bmcLsid" checked="${e.isBmcLsid()}" title="LSID" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/oblsid">
 
 								      <f:entry field="lsid">
-								       	<f:number name="lsid" value="${e.lsid}" />
+								       	<f:number name="lsid" value="${e.lsid}" placeholder="1-2036"/>
 								      </f:entry>
 								    </f:optionalBlock>								  
 
 									<f:optionalBlock name="bmcRsid" field="bmcRsid" checked="${e.isBmcRsid()}" title="RSID" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obrsid">
 
 								      <f:entry field="rsid">
-								       	<f:number name="rsid" value="${e.rsid}" />
+								       	<f:number name="rsid" value="${e.rsid}" placeholder="1-2036" />
 								      </f:entry>
 								    </f:optionalBlock>								  
 
 									<f:optionalBlock name="bmcSpa"  field="bmcSpa" checked="${e.isBmcSpa()}" title="SPA" inline="true"  help="/descriptor/com.bmc.ims.BmcDlpBuilder/help/obspa">
 
 								      <f:entry field="spa">
-								       	<f:number name="spa" value="${e.spa}" />
+								       	<f:number name="spa" value="${e.spa}" placeholder="16-32767"/>
 								      </f:entry>
 								    </f:optionalBlock>								  
 
