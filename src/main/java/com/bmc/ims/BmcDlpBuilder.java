@@ -1483,7 +1483,7 @@ public class BmcDlpBuilder extends Builder implements SimpleBuildStep, Serializa
 
 			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
 
-			String tempValue = StringUtils.trimToEmpty(value);
+			//String tempValue = StringUtils.trimToEmpty(value);
 
 			if(bmcEmhs==true) {
 				if (tranfp.equals("N"))

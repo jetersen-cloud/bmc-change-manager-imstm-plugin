@@ -62,7 +62,20 @@
         </pluginRepository>
     </pluginRepositories>
     <dependencies>
-    	<dependency>
+		<!-- https://mvnrepository.com/artifact/com.github.jnr/jnr-posix -->
+		<dependency>
+			<groupId>com.github.jnr</groupId>
+			<artifactId>jnr-posix</artifactId>
+			<version>3.1.15</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.jruby.ext.posix/jna-posix -->
+		<dependency>
+			<groupId>org.jruby.ext.posix</groupId>
+			<artifactId>jna-posix</artifactId>
+			<version>1.0.3</version>
+		</dependency>
+
+		<dependency>
     		<groupId>org.json</groupId>
     		<artifactId>json</artifactId>
     		<version>20200518</version>
@@ -209,7 +222,7 @@
 					<version>3.0.0-M3</version>
 					<configuration>
 						<excludes>
-						<exclude>**/InjectedTest*.*</exclude>
+						<!--exclude>**/InjectedTest*.*</exclude-->
 						
 						</excludes>
 			
