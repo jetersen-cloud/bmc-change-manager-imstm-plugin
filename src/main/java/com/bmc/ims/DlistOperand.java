@@ -2,16 +2,12 @@ package com.bmc.ims;
 
 import org.kohsuke.stapler.DataBoundConstructor;
 
-/**
- * Represents a single operand relative to an action
- * @param title - Operand's name
- * @param field - Must match the field in DlistRecord and config.jelly for successful binding
- */
+
 
 public class DlistOperand  {
 
-	private String title;
-	private String field;
+	private String title; //Operand's name
+	private String field; //Must match the field in DlistRecord and config.jelly for successful binding
 	private String type;	
 	private String[] options;
 	private String placeholder;
