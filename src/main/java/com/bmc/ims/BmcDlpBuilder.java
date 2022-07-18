@@ -357,18 +357,19 @@ public class BmcDlpBuilder extends Builder implements SimpleBuildStep, Serializa
 					}
 				}//end for loop
 			}
-			else if(body.indexOf("\n")<=73)
-			{
-				//String[] temp=body.split("\\n");
-				processedBody=processedBody.concat(body.substring(0,body.indexOf("\n")+1));
-				body=body.substring(body.indexOf("\n")+1);
-			}
 			// last line
 			else if(body.indexOf("\n")==-1)
 			{
 				processedBody=processedBody.concat(body);
 				body=body.substring(0,0); //sets length to 0
 			}
+			else if(body.indexOf("\n")<=73)
+			{
+				//String[] temp=body.split("\\n");
+				processedBody=processedBody.concat(body.substring(0,body.indexOf("\n")+1));
+				body=body.substring(body.indexOf("\n")+1);
+			}
+			
 		}
 
 		return processedBody;
@@ -1482,7 +1483,7 @@ public class BmcDlpBuilder extends Builder implements SimpleBuildStep, Serializa
 
 			Jenkins.get().checkPermission(Jenkins.ADMINISTER);
 
-			String tempValue = StringUtils.trimToEmpty(value);
+			//String tempValue = StringUtils.trimToEmpty(value);
 
 			if(bmcEmhs==true) {
 				if (tranfp.equals("N"))

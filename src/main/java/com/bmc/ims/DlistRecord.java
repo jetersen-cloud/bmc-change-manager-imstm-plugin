@@ -2,11 +2,13 @@ package com.bmc.ims;
 
 import org.kohsuke.stapler.DataBoundConstructor;
 
+import java.io.Serializable;
+
 /**
  * Represents a single record on a DELTA list
  */
 
-public class DlistRecord {
+public class DlistRecord implements Serializable {
 
 	private String action;
 	private String elementType;

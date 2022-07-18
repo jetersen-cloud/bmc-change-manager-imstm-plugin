@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>4.16</version>
+        <version>4.32</version>
         <relativePath />
     </parent>
     <groupId>com.bmc.ims</groupId>
@@ -62,7 +62,9 @@
         </pluginRepository>
     </pluginRepositories>
     <dependencies>
-    	<dependency>
+
+
+		<dependency>
     		<groupId>org.json</groupId>
     		<artifactId>json</artifactId>
     		<version>20200518</version>
@@ -70,7 +72,7 @@
 		<dependency>
 			<groupId>org.jenkins-ci.plugins</groupId>
 			<artifactId>script-security</artifactId>
-			<version>1.78</version>
+			<version>1172.v35f6a_0b_8207e</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
 		<dependency>
