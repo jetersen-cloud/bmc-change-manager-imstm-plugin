@@ -2,11 +2,8 @@ package com.bmc.ims;
 
 import hudson.AbortException;
 import hudson.model.TaskListener;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+
+import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -18,7 +15,7 @@ import org.json.JSONArray;
 import java.nio.charset.Charset;
 
 
-public class JCLService {
+public class JCLService implements Serializable {
 	private String encodedCredentials = null;
 	private String authHeader = null;
 	private String hostUrl = null;
